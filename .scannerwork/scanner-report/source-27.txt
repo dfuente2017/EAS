@@ -101,7 +101,7 @@ class PlayFile extends Source implements Runnable {
         fileLastm = auxFile.lastModified();
         BufferedReader d
                 = new BufferedReader(new InputStreamReader(new FileInputStream(auxFile)));
-        Vector<String> v = new Vector<>();
+        ArrayList<String> v = (ArrayList) Collections.synchronizedCollection(new ArrayList<String>());
         try {
             while (true) {
                 String s = d.readLine();
@@ -110,7 +110,7 @@ class PlayFile extends Source implements Runnable {
                 if (!s.startsWith(HTTP) && !s.endsWith(".ogg") && !s.endsWith(".spx"))
                     continue;
                 System.out.println("playFile (" + s + ")");
-                v.addElement(s);
+                v.add(s);
             }
             d.close();
         } catch (Exception ee) {
@@ -118,7 +118,7 @@ class PlayFile extends Source implements Runnable {
         }
         this.files = new String[v.size()];
         for (int i = 0; i < v.size(); i++) {
-            this.files[i] = v.elementAt(i);
+            this.files[i] = v.get(i);
         }
     }
 
@@ -245,7 +245,7 @@ class PlayFile extends Source implements Runnable {
 
                     if (result == 0) break; // need more data
                     if (result == -1) { // missing or corrupt data at this page position
-//	    System.err.println("Corrupt or missing data in bitstream; continuing...");
+                                        //System  err  println("Corrupt or missing data in bitstream; continuing...");
                     } else {
                         serialno = og.serialno();
                         granulepos = og.granulepos();
@@ -281,7 +281,6 @@ class PlayFile extends Source implements Runnable {
                         }
 
                         status = "status9";
-//            synchronized(listeners){  // In some case, c.write will block.
                         status = "status99";
                         int size = listeners.size();
 
@@ -303,7 +302,6 @@ class PlayFile extends Source implements Runnable {
                                 }
                             }
                         }
-//	    }
                         status = "status11";
                         if (granulepos != 0 &&
                                 key_serialno == serialno) {
@@ -314,7 +312,6 @@ class PlayFile extends Source implements Runnable {
 
                             lastSample = granulepos;
                             long sleep = (time / 1000) - (System.currentTimeMillis() - startTime);
-//if(sleep>10000){sleep=0; time=(System.currentTimeMillis()-startTime);}
                             status = "status112";
                             if (sleep > 0) {
                                 try {
