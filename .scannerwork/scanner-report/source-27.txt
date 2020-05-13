@@ -142,9 +142,9 @@ class PlayFile extends Source implements Runnable {
     String status = "status0";
 
     public void run() {
-        Vector<String> httpHeader = new Vector<>();
-        httpHeader.addElement("HTTP/1.0 200 OK");
-        httpHeader.addElement("Content-Type: application/x-ogg");
+        ArrayList<String> httpHeader = (ArrayList<String>) Collections.synchronizedCollection(new ArrayList<String>());
+        httpHeader.add("HTTP/1.0 200 OK");
+        httpHeader.add("Content-Type: application/x-ogg");
 
         int ii = -1;
         //loop:
@@ -245,7 +245,7 @@ class PlayFile extends Source implements Runnable {
 
                     if (result == 0) break; // need more data
                     if (result == -1) { // missing or corrupt data at this page position
-                                        //System  err  println("Corrupt or missing data in bitstream; continuing...");
+
                     } else {
                         serialno = og.serialno();
                         granulepos = og.granulepos();

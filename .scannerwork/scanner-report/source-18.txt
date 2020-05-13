@@ -44,7 +44,7 @@ String touched="not yet";
     }
   }
 
-  public void write(Vector http_header, byte[] header,
+  public void write(ArrayList httpHeader, byte[] header,
 		    byte[] foo, int foostart, int foolength,
 		    byte[] bar, int barstart, int barlength) throws IOException{
 touched="done";
@@ -55,8 +55,8 @@ touched="done";
         ready=false;
         return;
       }
-      for(int i=0; i<http_header.size(); i++){
-        ms.println((String)(http_header.elementAt(i)));
+      for(int i=0; i<httpHeader.size(); i++){
+        ms.println((String)(httpHeader.get(i)));
       }
       ms.println("");
       ms.flush();

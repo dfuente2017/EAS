@@ -1,0 +1,1 @@
+[ 2tsXhrtout/production/EAS-Sonar/.scannerwork/.sonartmp/eslint-bridge-bundle/package/lib/rules/prefer-promise-shorthand.d.ts

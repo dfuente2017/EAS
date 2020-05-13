@@ -1,0 +1,1 @@
+@ 2tsXhrmout/production/EAS-Sonar/.scannerwork/.sonartmp/eslint-bridge-bundle/package/lib/rules/no-unthrown-error.d.ts

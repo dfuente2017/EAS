@@ -1,5 +1,5 @@
 /* -*-mode:java; c-basic-offset:2; -*- */
-/* JRoar -- pure Java streaming server for Ogg 
+/* JRoar -- pure Java streaming server for Ogg
  *
  * Copyright (C) 2001,2002 ymnk, JCraft,Inc.
  *
@@ -21,29 +21,32 @@
  */
 
 package com.jcraft.jroar;
+
 import java.io.*;
 import java.util.*;
 
-abstract class Client{
-  static Vector clients=new Vector();
-  String proxy=null;
-  long lasttime=0;
-  boolean ready=false;
+abstract class Client {
+    static Vector clients = new Vector();
+    String proxy = null;
+    long lasttime = 0;
+    boolean ready = false;
 
-  Client(){
-    lasttime=System.currentTimeMillis();
-    synchronized(clients){
-      clients.addElement(this);
+    Client() {
+        lasttime = System.currentTimeMillis();
+        synchronized (clients) {
+            clients.addElement(this);
+        }
     }
-  }
 
-  abstract void write(Vector http_header, byte[] header,
-	     byte[] foo, int foostart, int foolength,
-	     byte[] bar, int barstart, int barlength) throws IOException;
-  void close(){
-    synchronized(clients){
-      clients.removeElement(this);
+    abstract void write(ArrayList httpHeader, byte[] header,
+                        byte[] foo, int foostart, int foolength,
+                        byte[] bar, int barstart, int barlength) throws IOException;
+
+    void close() {
+        synchronized (clients) {
+            clients.removeElement(this);
+        }
     }
-  }
-  abstract boolean isRunning();
+
+    abstract boolean isRunning();
 }

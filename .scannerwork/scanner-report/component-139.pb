@@ -1,0 +1,1 @@
+‹ 2tsXhrjout/production/EAS-Sonar/.scannerwork/.sonartmp/eslint-bridge-bundle/package/lib/rules/use-type-alias.d.ts

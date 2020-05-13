@@ -1,0 +1,1 @@
+‘ 2tsXhriout/production/EAS-Sonar/.scannerwork/.sonartmp/eslint-bridge-bundle/package/lib/rules/variable-name.d.ts

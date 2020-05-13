@@ -80,7 +80,7 @@ HttpServer.source_connections++;
     //if(me==null) return; 
     lasttime=System.currentTimeMillis();
 
-    Vector http_header=new Vector();
+    ArrayList httpHeader = (ArrayList) Collections.synchronizedCollection(new ArrayList<>());
     com.jcraft.jogg.Page[] pages=new com.jcraft.jogg.Page[10];
     int page_count=0;
 
@@ -111,15 +111,15 @@ HttpServer.source_connections++;
 	t=urlc.getHeaderFieldKey(i);
 	if(s==null)break;
 	// System.out.println("header: "+t+": "+s);
-	http_header.addElement((t==null?s:(t+": "+s)));
+	httpHeader.add((t==null?s:(t+": "+s)));
 	i++;
       }
 
       int index=0;
       foo="jroar-source."+index+": ";
       i=0;
-      for(;i<http_header.size();i++){
-        s=(String)(http_header.elementAt(i));
+      for(;i<httpHeader.size();i++){
+        s=(String)(httpHeader.get(i));
         if(s.startsWith(foo)){
            index++;
            foo="jroar-source."+index+": ";
@@ -128,7 +128,7 @@ HttpServer.source_connections++;
 	}
         break;
       }
-      http_header.addElement(foo+source);
+      httpHeader.add(foo+source);
 
       bitStream=urlc.getInputStream();
     }
@@ -228,7 +228,7 @@ HttpServer.source_connections++;
               for(int i=0; i<size;){
 	        try{
                   c=(Client)(listeners.elementAt(i));
-                  c.write(http_header, header,
+                  c.write(httpHeader, header,
   			  og.header_base, og.header, og.header_len,
 			  og.body_base, og.body, og.body_len);
 		}

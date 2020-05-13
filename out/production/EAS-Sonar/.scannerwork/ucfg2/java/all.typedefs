@@ -917,13 +917,79 @@ nanoTime()java.lang.System#nanoTime()Jt
 readline(Ljava/io/InputStream;)Fcom.jcraft.jroar.M3u#readline(Ljava/io/InputStream;)Ljava/lang/String;.
 
 register() com.jcraft.jroar.M3u#register()V
-Clientjava.lang.Object¿
+Clientjava.lang.Object∆
 com.jcraft.jroar.HttpClientClientF
 
-toString()8com.jcraft.jroar.HttpClient#toString()Ljava/lang/String;g
-#write(Ljava/util/Vector;[B[BII[BII)@com.jcraft.jroar.HttpClient#write(Ljava/util/Vector;[B[BII[BII)V7
-isRunning()(com.jcraft.jroar.HttpClient#isRunning()Z/
-close()$com.jcraft.jroar.HttpClient#close()Vœ
+toString()8com.jcraft.jroar.HttpClient#toString()Ljava/lang/String;7
+isRunning()(com.jcraft.jroar.HttpClient#isRunning()Zm
+&write(Ljava/util/ArrayList;[B[BII[BII)Ccom.jcraft.jroar.HttpClient#write(Ljava/util/ArrayList;[B[BII[BII)V/
+close()$com.jcraft.jroar.HttpClient#close()Vç'
+java.util.ArrayListjava.util.RandomAccessjava.util.Listjava.lang.Cloneablejava.util.AbstractListjava.io.SerializableM
+equals(Ljava/lang/Object;)/java.util.ArrayList#equals(Ljava/lang/Object;)Z7
+removeRange(II)$java.util.ArrayList#removeRange(II)V[
+!removeAll(Ljava/util/Collection;)6java.util.ArrayList#removeAll(Ljava/util/Collection;)ZM
+remove(Ljava/lang/Object;)/java.util.ArrayList#remove(Ljava/lang/Object;)ZL
+listIterator():java.util.ArrayList#listIterator()Ljava/util/ListIterator;=
+	toArray()0java.util.ArrayList#toArray()[Ljava/lang/Object;+
+	<init>(I)java.util.ArrayList#<init>(I)V7
+hugeCapacity(I)$java.util.ArrayList#hugeCapacity(I)Ie
+&forEach(Ljava/util/function/Consumer;);java.util.ArrayList#forEach(Ljava/util/function/Consumer;)Ve
+&equalsArrayList(Ljava/util/ArrayList;);java.util.ArrayList#equalsArrayList(Ljava/util/ArrayList;)Z)
+<init>()java.util.ArrayList#<init>()V6
+get(I),java.util.ArrayList#get(I)Ljava/lang/Object;g
+'readObject(Ljava/io/ObjectInputStream;)<java.util.ArrayList#readObject(Ljava/io/ObjectInputStream;)VL
+outOfBoundsMsg(I)7java.util.ArrayList#outOfBoundsMsg(I)Ljava/lang/String;'
+clear()java.util.ArrayList#clear()VI
+add(ILjava/lang/Object;)-java.util.ArrayList#add(ILjava/lang/Object;)V+
+	isEmpty()java.util.ArrayList#isEmpty()Z>
+subList(II)/java.util.ArrayList#subList(II)Ljava/util/List;W
+lastIndexOf(Ljava/lang/Object;)4java.util.ArrayList#lastIndexOf(Ljava/lang/Object;)Io
++add(Ljava/lang/Object;[Ljava/lang/Object;I)@java.util.ArrayList#add(Ljava/lang/Object;[Ljava/lang/Object;I)VO
+indexOf(Ljava/lang/Object;)0java.util.ArrayList#indexOf(Ljava/lang/Object;)I1
+trimToSize()!java.util.ArrayList#trimToSize()V]
+"indexOfRange(Ljava/lang/Object;II)7java.util.ArrayList#indexOfRange(Ljava/lang/Object;II)IK
+checkForComodification(I).java.util.ArrayList#checkForComodification(I)VZ
+set(ILjava/lang/Object;)>java.util.ArrayList#set(ILjava/lang/Object;)Ljava/lang/Object;N
+outOfBoundsMsg(II)8java.util.ArrayList#outOfBoundsMsg(II)Ljava/lang/String;G
+add(Ljava/lang/Object;),java.util.ArrayList#add(Ljava/lang/Object;)Z5
+newCapacity(I)#java.util.ArrayList#newCapacity(I)I8
+clone()-java.util.ArrayList#clone()Ljava/lang/Object;e
+&batchRemove(Ljava/util/Collection;ZII);java.util.ArrayList#batchRemove(Ljava/util/Collection;ZII)ZU
+<init>(Ljava/util/Collection;)3java.util.ArrayList#<init>(Ljava/util/Collection;)VÉ
+5replaceAllRange(Ljava/util/function/UnaryOperator;II)Jjava.util.ArrayList#replaceAllRange(Ljava/util/function/UnaryOperator;II)Vg
+'shiftTailOverGap([Ljava/lang/Object;II)<java.util.ArrayList#shiftTailOverGap([Ljava/lang/Object;II)V;
+ensureCapacity(I)&java.util.ArrayList#ensureCapacity(I)VF
+elementData(I)4java.util.ArrayList#elementData(I)Ljava/lang/Object;/
+setBit([JI) java.util.ArrayList#setBit([JI)V9
+grow(I).java.util.ArrayList#grow(I)[Ljava/lang/Object;c
+toArray([Ljava/lang/Object;)Cjava.util.ArrayList#toArray([Ljava/lang/Object;)[Ljava/lang/Object;<
+	remove(I)/java.util.ArrayList#remove(I)Ljava/lang/Object;Q
+contains(Ljava/lang/Object;)1java.util.ArrayList#contains(Ljava/lang/Object;)Zm
+*removeIf(Ljava/util/function/Predicate;II)?java.util.ArrayList#removeIf(Ljava/util/function/Predicate;II)Ze
+&lastIndexOfRange(Ljava/lang/Object;II);java.util.ArrayList#lastIndexOfRange(Ljava/lang/Object;II)I-
+
+hashCode()java.util.ArrayList#hashCode()Ii
+(removeIf(Ljava/util/function/Predicate;)=java.util.ArrayList#removeIf(Ljava/util/function/Predicate;)ZW
+equalsRange(Ljava/util/List;II)4java.util.ArrayList#equalsRange(Ljava/util/List;II)ZQ
+sort(Ljava/util/Comparator;)1java.util.ArrayList#sort(Ljava/util/Comparator;)VN
+listIterator(I);java.util.ArrayList#listIterator(I)Ljava/util/ListIterator;Y
+ fastRemove([Ljava/lang/Object;I)5java.util.ArrayList#fastRemove([Ljava/lang/Object;I)Vh
+elementAt([Ljava/lang/Object;I)Ejava.util.ArrayList#elementAt([Ljava/lang/Object;I)Ljava/lang/Object;?
+rangeCheckForAdd(I)(java.util.ArrayList#rangeCheckForAdd(I)V;
+checkInvariants()&java.util.ArrayList#checkInvariants()V;
+hashCodeRange(II)&java.util.ArrayList#hashCodeRange(II)IW
+addAll(ILjava/util/Collection;)4java.util.ArrayList#addAll(ILjava/util/Collection;)ZU
+addAll(Ljava/util/Collection;)3java.util.ArrayList#addAll(Ljava/util/Collection;)Z7
+grow()-java.util.ArrayList#grow()[Ljava/lang/Object;u
+.replaceAll(Ljava/util/function/UnaryOperator;)Cjava.util.ArrayList#replaceAll(Ljava/util/function/UnaryOperator;)V[
+!retainAll(Ljava/util/Collection;)6java.util.ArrayList#retainAll(Ljava/util/Collection;)Z*
+nBits(I)java.util.ArrayList#nBits(I)[J@
+
+iterator()2java.util.ArrayList#iterator()Ljava/util/Iterator;I
+spliterator()8java.util.ArrayList#spliterator()Ljava/util/Spliterator;1
+isClear([JI)!java.util.ArrayList#isClear([JI)Zk
+)writeObject(Ljava/io/ObjectOutputStream;)>java.util.ArrayList#writeObject(Ljava/io/ObjectOutputStream;)V%
+size()java.util.ArrayList#size()Iœ
 com.jcraft.jogg.SyncStatejava.lang.Object1
 	buffer(I)$com.jcraft.jogg.SyncState#buffer(I)I-
 reset()"com.jcraft.jogg.SyncState#reset()I/
@@ -1655,7 +1721,92 @@ toString()3com.jcraft.jroar.Proxy#toString()Ljava/lang/String;(
 kick()com.jcraft.jroar.Proxy#kick()V0
 
 init_ogg()"com.jcraft.jroar.Proxy#init_ogg()V(
-drop()com.jcraft.jroar.Proxy#drop()V7
+drop()com.jcraft.jroar.Proxy#drop()V◊M
+java.util.Collectionsjava.lang.Object£
+=checkedMap(Ljava/util/Map;Ljava/lang/Class;Ljava/lang/Class;)bjava.util.Collections#checkedMap(Ljava/util/Map;Ljava/lang/Class;Ljava/lang/Class;)Ljava/util/Map;ñ
+2unmodifiableNavigableMap(Ljava/util/NavigableMap;)`java.util.Collections#unmodifiableNavigableMap(Ljava/util/NavigableMap;)Ljava/util/NavigableMap;g
+&copy(Ljava/util/List;Ljava/util/List;)=java.util.Collections#copy(Ljava/util/List;Ljava/util/List;)Vg
+asLifoQueue(Ljava/util/Deque;)Ejava.util.Collections#asLifoQueue(Ljava/util/Deque;)Ljava/util/Queue;Æ
+>checkedNavigableSet(Ljava/util/NavigableSet;Ljava/lang/Class;)ljava.util.Collections#checkedNavigableSet(Ljava/util/NavigableSet;Ljava/lang/Class;)Ljava/util/NavigableSet;M
+reverse(Ljava/util/List;)0java.util.Collections#reverse(Ljava/util/List;)VO
+emptySortedSet();java.util.Collections#emptySortedSet()Ljava/util/SortedSet;b
+min(Ljava/util/Collection;)Cjava.util.Collections#min(Ljava/util/Collection;)Ljava/lang/Object;w
+#enumeration(Ljava/util/Collection;)Pjava.util.Collections#enumeration(Ljava/util/Collection;)Ljava/util/Enumeration;Ü
+.checkedList(Ljava/util/List;Ljava/lang/Class;)Tjava.util.Collections#checkedList(Ljava/util/List;Ljava/lang/Class;)Ljava/util/List;–
+OcheckedNavigableMap(Ljava/util/NavigableMap;Ljava/lang/Class;Ljava/lang/Class;)}java.util.Collections#checkedNavigableMap(Ljava/util/NavigableMap;Ljava/lang/Class;Ljava/lang/Class;)Ljava/util/NavigableMap;+
+<init>()java.util.Collections#<init>()Vß
+FbinarySearch(Ljava/util/List;Ljava/lang/Object;Ljava/util/Comparator;)]java.util.Collections#binarySearch(Ljava/util/List;Ljava/lang/Object;Ljava/util/Comparator;)Il
+!singletonList(Ljava/lang/Object;)Gjava.util.Collections#singletonList(Ljava/lang/Object;)Ljava/util/List;ç
+2synchronizedSet(Ljava/util/Set;Ljava/lang/Object;)Wjava.util.Collections#synchronizedSet(Ljava/util/Set;Ljava/lang/Object;)Ljava/util/Set;i
+ unmodifiableSet(Ljava/util/Set;)Ejava.util.Collections#unmodifiableSet(Ljava/util/Set;)Ljava/util/Set;é
+1min(Ljava/util/Collection;Ljava/util/Comparator;)Yjava.util.Collections#min(Ljava/util/Collection;Ljava/util/Comparator;)Ljava/lang/Object;é
+1max(Ljava/util/Collection;Ljava/util/Comparator;)Yjava.util.Collections#max(Ljava/util/Collection;Ljava/util/Comparator;)Ljava/lang/Object;Å
+3frequency(Ljava/util/Collection;Ljava/lang/Object;)Jjava.util.Collections#frequency(Ljava/util/Collection;Ljava/lang/Object;)Iå
+.unmodifiableCollection(Ljava/util/Collection;)Zjava.util.Collections#unmodifiableCollection(Ljava/util/Collection;)Ljava/util/Collection;{
+0binarySearch(Ljava/util/List;Ljava/lang/Object;)Gjava.util.Collections#binarySearch(Ljava/util/List;Ljava/lang/Object;)Ix
+$reverseOrder(Ljava/util/Comparator;)Pjava.util.Collections#reverseOrder(Ljava/util/Comparator;)Ljava/util/Comparator;X
+emptyNavigableMap()Ajava.util.Collections#emptyNavigableMap()Ljava/util/NavigableMap;§
+:checkedCollection(Ljava/util/Collection;Ljava/lang/Class;)fjava.util.Collections#checkedCollection(Ljava/util/Collection;Ljava/lang/Class;)Ljava/util/Collection;n
+"unmodifiableList(Ljava/util/List;)Hjava.util.Collections#unmodifiableList(Ljava/util/List;)Ljava/util/List;ñ
+2synchronizedNavigableMap(Ljava/util/NavigableMap;)`java.util.Collections#synchronizedNavigableMap(Ljava/util/NavigableMap;)Ljava/util/NavigableMap;M
+rotate(Ljava/util/List;I)0java.util.Collections#rotate(Ljava/util/List;I)VO
+emptySortedMap();java.util.Collections#emptySortedMap()Ljava/util/SortedMap;á
+,unmodifiableSortedSet(Ljava/util/SortedSet;)Wjava.util.Collections#unmodifiableSortedSet(Ljava/util/SortedSet;)Ljava/util/SortedSet;s
+,sort(Ljava/util/List;Ljava/util/Comparator;)Cjava.util.Collections#sort(Ljava/util/List;Ljava/util/Comparator;)VL
+reverseOrder():java.util.Collections#reverseOrder()Ljava/util/Comparator;q
++shuffle(Ljava/util/List;Ljava/util/Random;)Bjava.util.Collections#shuffle(Ljava/util/List;Ljava/util/Random;)Vá
+,unmodifiableSortedMap(Ljava/util/SortedMap;)Wjava.util.Collections#unmodifiableSortedMap(Ljava/util/SortedMap;)Ljava/util/SortedMap;b
+max(Ljava/util/Collection;)Cjava.util.Collections#max(Ljava/util/Collection;)Ljava/lang/Object;ã
+8iteratorBinarySearch(Ljava/util/List;Ljava/lang/Object;)Ojava.util.Collections#iteratorBinarySearch(Ljava/util/List;Ljava/lang/Object;)Iµ
+MindexedBinarySearch(Ljava/util/List;Ljava/lang/Object;Ljava/util/Comparator;)djava.util.Collections#indexedBinarySearch(Ljava/util/List;Ljava/lang/Object;Ljava/util/Comparator;)IÅ
+(singletonSpliterator(Ljava/lang/Object;)Ujava.util.Collections#singletonSpliterator(Ljava/lang/Object;)Ljava/util/Spliterator;X
+emptyNavigableSet()Ajava.util.Collections#emptyNavigableSet()Ljava/util/NavigableSet;í
+4synchronizedList(Ljava/util/List;Ljava/lang/Object;)Zjava.util.Collections#synchronizedList(Ljava/util/List;Ljava/lang/Object;)Ljava/util/List;@
+emptyList()1java.util.Collections#emptyList()Ljava/util/List;G
+sort(Ljava/util/List;)-java.util.Collections#sort(Ljava/util/List;)Vi
+list(Ljava/util/Enumeration;)Hjava.util.Collections#list(Ljava/util/Enumeration;)Ljava/util/ArrayList;=
+
+emptySet()/java.util.Collections#emptySet()Ljava/util/Set;O
+rotate1(Ljava/util/List;I)1java.util.Collections#rotate1(Ljava/util/List;I)VX
+emptyListIterator()Ajava.util.Collections#emptyListIterator()Ljava/util/ListIterator;i
+ synchronizedMap(Ljava/util/Map;)Ejava.util.Collections#synchronizedMap(Ljava/util/Map;)Ljava/util/Map;O
+rotate2(Ljava/util/List;I)1java.util.Collections#rotate2(Ljava/util/List;I)Ve
+newSetFromMap(Ljava/util/Map;)Cjava.util.Collections#newSetFromMap(Ljava/util/Map;)Ljava/util/Set;k
+(eq(Ljava/lang/Object;Ljava/lang/Object;)?java.util.Collections#eq(Ljava/lang/Object;Ljava/lang/Object;)Zç
+2singletonMap(Ljava/lang/Object;Ljava/lang/Object;)Wjava.util.Collections#singletonMap(Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/Map;=
+
+emptyMap()/java.util.Collections#emptyMap()Ljava/util/Map;ã
+0checkedQueue(Ljava/util/Queue;Ljava/lang/Class;)Wjava.util.Collections#checkedQueue(Ljava/util/Queue;Ljava/lang/Class;)Ljava/util/Queue;i
+ unmodifiableMap(Ljava/util/Map;)Ejava.util.Collections#unmodifiableMap(Ljava/util/Map;)Ljava/util/Map;L
+emptyIterator()9java.util.Collections#emptyIterator()Ljava/util/Iterator;¡
+IcheckedSortedMap(Ljava/util/SortedMap;Ljava/lang/Class;Ljava/lang/Class;)tjava.util.Collections#checkedSortedMap(Ljava/util/SortedMap;Ljava/lang/Class;Ljava/lang/Class;)Ljava/util/SortedMap;∞
+@synchronizedCollection(Ljava/util/Collection;Ljava/lang/Object;)ljava.util.Collections#synchronizedCollection(Ljava/util/Collection;Ljava/lang/Object;)Ljava/util/Collection;{
+0indexOfSubList(Ljava/util/List;Ljava/util/List;)Gjava.util.Collections#indexOfSubList(Ljava/util/List;Ljava/util/List;)Iñ
+2unmodifiableNavigableSet(Ljava/util/NavigableSet;)`java.util.Collections#unmodifiableNavigableSet(Ljava/util/NavigableSet;)Ljava/util/NavigableSet;É
+4lastIndexOfSubList(Ljava/util/List;Ljava/util/List;)Kjava.util.Collections#lastIndexOfSubList(Ljava/util/List;Ljava/util/List;)Ix
+%singletonIterator(Ljava/lang/Object;)Ojava.util.Collections#singletonIterator(Ljava/lang/Object;)Ljava/util/Iterator;q
+"zeroLengthArray(Ljava/lang/Class;)Kjava.util.Collections#zeroLengthArray(Ljava/lang/Class;)[Ljava/lang/Object;M
+shuffle(Ljava/util/List;)0java.util.Collections#shuffle(Ljava/util/List;)V}
+1addAll(Ljava/util/Collection;[Ljava/lang/Object;)Hjava.util.Collections#addAll(Ljava/util/Collection;[Ljava/lang/Object;)ZÅ
+,checkedSet(Ljava/util/Set;Ljava/lang/Class;)Qjava.util.Collections#checkedSet(Ljava/util/Set;Ljava/lang/Class;)Ljava/util/Set;å
+.synchronizedCollection(Ljava/util/Collection;)Zjava.util.Collections#synchronizedCollection(Ljava/util/Collection;)Ljava/util/Collection;b
+nCopies(ILjava/lang/Object;)Bjava.util.Collections#nCopies(ILjava/lang/Object;)Ljava/util/List;á
+,synchronizedSortedMap(Ljava/util/SortedMap;)Wjava.util.Collections#synchronizedSortedMap(Ljava/util/SortedMap;)Ljava/util/SortedMap;Q
+swap([Ljava/lang/Object;II)2java.util.Collections#swap([Ljava/lang/Object;II)Vi
+ synchronizedSet(Ljava/util/Set;)Ejava.util.Collections#synchronizedSet(Ljava/util/Set;)Ljava/util/Set;U
+emptyEnumeration()?java.util.Collections#emptyEnumeration()Ljava/util/Enumeration;∑
+NiteratorBinarySearch(Ljava/util/List;Ljava/lang/Object;Ljava/util/Comparator;)ejava.util.Collections#iteratorBinarySearch(Ljava/util/List;Ljava/lang/Object;Ljava/util/Comparator;)Ih
+get(Ljava/util/ListIterator;I)Fjava.util.Collections#get(Ljava/util/ListIterator;I)Ljava/lang/Object;õ
+@replaceAll(Ljava/util/List;Ljava/lang/Object;Ljava/lang/Object;)Wjava.util.Collections#replaceAll(Ljava/util/List;Ljava/lang/Object;Ljava/lang/Object;)ZK
+swap(Ljava/util/List;II)/java.util.Collections#swap(Ljava/util/List;II)Vc
+singleton(Ljava/lang/Object;)Bjava.util.Collections#singleton(Ljava/lang/Object;)Ljava/util/Set;á
+,synchronizedSortedSet(Ljava/util/SortedSet;)Wjava.util.Collections#synchronizedSortedSet(Ljava/util/SortedSet;)Ljava/util/SortedSet;â
+7indexedBinarySearch(Ljava/util/List;Ljava/lang/Object;)Njava.util.Collections#indexedBinarySearch(Ljava/util/List;Ljava/lang/Object;)Iñ
+2synchronizedNavigableSet(Ljava/util/NavigableSet;)`java.util.Collections#synchronizedNavigableSet(Ljava/util/NavigableSet;)Ljava/util/NavigableSet;n
+"synchronizedList(Ljava/util/List;)Hjava.util.Collections#synchronizedList(Ljava/util/List;)Ljava/util/List;á
+6disjoint(Ljava/util/Collection;Ljava/util/Collection;)Mjava.util.Collections#disjoint(Ljava/util/Collection;Ljava/util/Collection;)Zk
+(fill(Ljava/util/List;Ljava/lang/Object;)?java.util.Collections#fill(Ljava/util/List;Ljava/lang/Object;)Vü
+8checkedSortedSet(Ljava/util/SortedSet;Ljava/lang/Class;)cjava.util.Collections#checkedSortedSet(Ljava/util/SortedSet;Ljava/lang/Class;)Ljava/util/SortedSet;7
 #com.jcraft.jroar.MountPointListenerjava.lang.Object˛
 com.jcraft.jroar.DebugPage,
 <init>() com.jcraft.jroar.Debug#<init>()V^
@@ -1763,158 +1914,7 @@ isClosed()java.net.Socket#isClosed()Z;
 	initOgg()$com.jcraft.jroar.PlayFile#initOgg()Vy
 -<init>(Ljava/lang/String;[Ljava/lang/String;)Hcom.jcraft.jroar.PlayFile#<init>(Ljava/lang/String;[Ljava/lang/String;)V]
 updateFiles(Ljava/lang/String;):com.jcraft.jroar.PlayFile#updateFiles(Ljava/lang/String;)V+
-drop()!com.jcraft.jroar.PlayFile#drop()Vç'
-java.util.ArrayListjava.util.RandomAccessjava.util.Listjava.lang.Cloneablejava.util.AbstractListjava.io.SerializableM
-equals(Ljava/lang/Object;)/java.util.ArrayList#equals(Ljava/lang/Object;)Z7
-removeRange(II)$java.util.ArrayList#removeRange(II)V[
-!removeAll(Ljava/util/Collection;)6java.util.ArrayList#removeAll(Ljava/util/Collection;)ZM
-remove(Ljava/lang/Object;)/java.util.ArrayList#remove(Ljava/lang/Object;)ZL
-listIterator():java.util.ArrayList#listIterator()Ljava/util/ListIterator;=
-	toArray()0java.util.ArrayList#toArray()[Ljava/lang/Object;+
-	<init>(I)java.util.ArrayList#<init>(I)V7
-hugeCapacity(I)$java.util.ArrayList#hugeCapacity(I)Ie
-&forEach(Ljava/util/function/Consumer;);java.util.ArrayList#forEach(Ljava/util/function/Consumer;)Ve
-&equalsArrayList(Ljava/util/ArrayList;);java.util.ArrayList#equalsArrayList(Ljava/util/ArrayList;)Z)
-<init>()java.util.ArrayList#<init>()V6
-get(I),java.util.ArrayList#get(I)Ljava/lang/Object;g
-'readObject(Ljava/io/ObjectInputStream;)<java.util.ArrayList#readObject(Ljava/io/ObjectInputStream;)VL
-outOfBoundsMsg(I)7java.util.ArrayList#outOfBoundsMsg(I)Ljava/lang/String;'
-clear()java.util.ArrayList#clear()VI
-add(ILjava/lang/Object;)-java.util.ArrayList#add(ILjava/lang/Object;)V+
-	isEmpty()java.util.ArrayList#isEmpty()Z>
-subList(II)/java.util.ArrayList#subList(II)Ljava/util/List;W
-lastIndexOf(Ljava/lang/Object;)4java.util.ArrayList#lastIndexOf(Ljava/lang/Object;)Io
-+add(Ljava/lang/Object;[Ljava/lang/Object;I)@java.util.ArrayList#add(Ljava/lang/Object;[Ljava/lang/Object;I)VO
-indexOf(Ljava/lang/Object;)0java.util.ArrayList#indexOf(Ljava/lang/Object;)I1
-trimToSize()!java.util.ArrayList#trimToSize()V]
-"indexOfRange(Ljava/lang/Object;II)7java.util.ArrayList#indexOfRange(Ljava/lang/Object;II)IK
-checkForComodification(I).java.util.ArrayList#checkForComodification(I)VZ
-set(ILjava/lang/Object;)>java.util.ArrayList#set(ILjava/lang/Object;)Ljava/lang/Object;N
-outOfBoundsMsg(II)8java.util.ArrayList#outOfBoundsMsg(II)Ljava/lang/String;G
-add(Ljava/lang/Object;),java.util.ArrayList#add(Ljava/lang/Object;)Z5
-newCapacity(I)#java.util.ArrayList#newCapacity(I)I8
-clone()-java.util.ArrayList#clone()Ljava/lang/Object;e
-&batchRemove(Ljava/util/Collection;ZII);java.util.ArrayList#batchRemove(Ljava/util/Collection;ZII)ZU
-<init>(Ljava/util/Collection;)3java.util.ArrayList#<init>(Ljava/util/Collection;)VÉ
-5replaceAllRange(Ljava/util/function/UnaryOperator;II)Jjava.util.ArrayList#replaceAllRange(Ljava/util/function/UnaryOperator;II)Vg
-'shiftTailOverGap([Ljava/lang/Object;II)<java.util.ArrayList#shiftTailOverGap([Ljava/lang/Object;II)V;
-ensureCapacity(I)&java.util.ArrayList#ensureCapacity(I)VF
-elementData(I)4java.util.ArrayList#elementData(I)Ljava/lang/Object;/
-setBit([JI) java.util.ArrayList#setBit([JI)V9
-grow(I).java.util.ArrayList#grow(I)[Ljava/lang/Object;c
-toArray([Ljava/lang/Object;)Cjava.util.ArrayList#toArray([Ljava/lang/Object;)[Ljava/lang/Object;<
-	remove(I)/java.util.ArrayList#remove(I)Ljava/lang/Object;Q
-contains(Ljava/lang/Object;)1java.util.ArrayList#contains(Ljava/lang/Object;)Zm
-*removeIf(Ljava/util/function/Predicate;II)?java.util.ArrayList#removeIf(Ljava/util/function/Predicate;II)Ze
-&lastIndexOfRange(Ljava/lang/Object;II);java.util.ArrayList#lastIndexOfRange(Ljava/lang/Object;II)I-
-
-hashCode()java.util.ArrayList#hashCode()Ii
-(removeIf(Ljava/util/function/Predicate;)=java.util.ArrayList#removeIf(Ljava/util/function/Predicate;)ZW
-equalsRange(Ljava/util/List;II)4java.util.ArrayList#equalsRange(Ljava/util/List;II)ZQ
-sort(Ljava/util/Comparator;)1java.util.ArrayList#sort(Ljava/util/Comparator;)VN
-listIterator(I);java.util.ArrayList#listIterator(I)Ljava/util/ListIterator;Y
- fastRemove([Ljava/lang/Object;I)5java.util.ArrayList#fastRemove([Ljava/lang/Object;I)Vh
-elementAt([Ljava/lang/Object;I)Ejava.util.ArrayList#elementAt([Ljava/lang/Object;I)Ljava/lang/Object;?
-rangeCheckForAdd(I)(java.util.ArrayList#rangeCheckForAdd(I)V;
-checkInvariants()&java.util.ArrayList#checkInvariants()V;
-hashCodeRange(II)&java.util.ArrayList#hashCodeRange(II)IW
-addAll(ILjava/util/Collection;)4java.util.ArrayList#addAll(ILjava/util/Collection;)ZU
-addAll(Ljava/util/Collection;)3java.util.ArrayList#addAll(Ljava/util/Collection;)Z7
-grow()-java.util.ArrayList#grow()[Ljava/lang/Object;u
-.replaceAll(Ljava/util/function/UnaryOperator;)Cjava.util.ArrayList#replaceAll(Ljava/util/function/UnaryOperator;)V[
-!retainAll(Ljava/util/Collection;)6java.util.ArrayList#retainAll(Ljava/util/Collection;)Z*
-nBits(I)java.util.ArrayList#nBits(I)[J@
-
-iterator()2java.util.ArrayList#iterator()Ljava/util/Iterator;I
-spliterator()8java.util.ArrayList#spliterator()Ljava/util/Spliterator;1
-isClear([JI)!java.util.ArrayList#isClear([JI)Zk
-)writeObject(Ljava/io/ObjectOutputStream;)>java.util.ArrayList#writeObject(Ljava/io/ObjectOutputStream;)V%
-size()java.util.ArrayList#size()I◊M
-java.util.Collectionsjava.lang.Object£
-=checkedMap(Ljava/util/Map;Ljava/lang/Class;Ljava/lang/Class;)bjava.util.Collections#checkedMap(Ljava/util/Map;Ljava/lang/Class;Ljava/lang/Class;)Ljava/util/Map;ñ
-2unmodifiableNavigableMap(Ljava/util/NavigableMap;)`java.util.Collections#unmodifiableNavigableMap(Ljava/util/NavigableMap;)Ljava/util/NavigableMap;g
-&copy(Ljava/util/List;Ljava/util/List;)=java.util.Collections#copy(Ljava/util/List;Ljava/util/List;)Vg
-asLifoQueue(Ljava/util/Deque;)Ejava.util.Collections#asLifoQueue(Ljava/util/Deque;)Ljava/util/Queue;Æ
->checkedNavigableSet(Ljava/util/NavigableSet;Ljava/lang/Class;)ljava.util.Collections#checkedNavigableSet(Ljava/util/NavigableSet;Ljava/lang/Class;)Ljava/util/NavigableSet;M
-reverse(Ljava/util/List;)0java.util.Collections#reverse(Ljava/util/List;)VO
-emptySortedSet();java.util.Collections#emptySortedSet()Ljava/util/SortedSet;b
-min(Ljava/util/Collection;)Cjava.util.Collections#min(Ljava/util/Collection;)Ljava/lang/Object;w
-#enumeration(Ljava/util/Collection;)Pjava.util.Collections#enumeration(Ljava/util/Collection;)Ljava/util/Enumeration;Ü
-.checkedList(Ljava/util/List;Ljava/lang/Class;)Tjava.util.Collections#checkedList(Ljava/util/List;Ljava/lang/Class;)Ljava/util/List;–
-OcheckedNavigableMap(Ljava/util/NavigableMap;Ljava/lang/Class;Ljava/lang/Class;)}java.util.Collections#checkedNavigableMap(Ljava/util/NavigableMap;Ljava/lang/Class;Ljava/lang/Class;)Ljava/util/NavigableMap;+
-<init>()java.util.Collections#<init>()Vß
-FbinarySearch(Ljava/util/List;Ljava/lang/Object;Ljava/util/Comparator;)]java.util.Collections#binarySearch(Ljava/util/List;Ljava/lang/Object;Ljava/util/Comparator;)Il
-!singletonList(Ljava/lang/Object;)Gjava.util.Collections#singletonList(Ljava/lang/Object;)Ljava/util/List;ç
-2synchronizedSet(Ljava/util/Set;Ljava/lang/Object;)Wjava.util.Collections#synchronizedSet(Ljava/util/Set;Ljava/lang/Object;)Ljava/util/Set;i
- unmodifiableSet(Ljava/util/Set;)Ejava.util.Collections#unmodifiableSet(Ljava/util/Set;)Ljava/util/Set;é
-1min(Ljava/util/Collection;Ljava/util/Comparator;)Yjava.util.Collections#min(Ljava/util/Collection;Ljava/util/Comparator;)Ljava/lang/Object;é
-1max(Ljava/util/Collection;Ljava/util/Comparator;)Yjava.util.Collections#max(Ljava/util/Collection;Ljava/util/Comparator;)Ljava/lang/Object;Å
-3frequency(Ljava/util/Collection;Ljava/lang/Object;)Jjava.util.Collections#frequency(Ljava/util/Collection;Ljava/lang/Object;)Iå
-.unmodifiableCollection(Ljava/util/Collection;)Zjava.util.Collections#unmodifiableCollection(Ljava/util/Collection;)Ljava/util/Collection;{
-0binarySearch(Ljava/util/List;Ljava/lang/Object;)Gjava.util.Collections#binarySearch(Ljava/util/List;Ljava/lang/Object;)Ix
-$reverseOrder(Ljava/util/Comparator;)Pjava.util.Collections#reverseOrder(Ljava/util/Comparator;)Ljava/util/Comparator;X
-emptyNavigableMap()Ajava.util.Collections#emptyNavigableMap()Ljava/util/NavigableMap;§
-:checkedCollection(Ljava/util/Collection;Ljava/lang/Class;)fjava.util.Collections#checkedCollection(Ljava/util/Collection;Ljava/lang/Class;)Ljava/util/Collection;n
-"unmodifiableList(Ljava/util/List;)Hjava.util.Collections#unmodifiableList(Ljava/util/List;)Ljava/util/List;ñ
-2synchronizedNavigableMap(Ljava/util/NavigableMap;)`java.util.Collections#synchronizedNavigableMap(Ljava/util/NavigableMap;)Ljava/util/NavigableMap;M
-rotate(Ljava/util/List;I)0java.util.Collections#rotate(Ljava/util/List;I)VO
-emptySortedMap();java.util.Collections#emptySortedMap()Ljava/util/SortedMap;á
-,unmodifiableSortedSet(Ljava/util/SortedSet;)Wjava.util.Collections#unmodifiableSortedSet(Ljava/util/SortedSet;)Ljava/util/SortedSet;s
-,sort(Ljava/util/List;Ljava/util/Comparator;)Cjava.util.Collections#sort(Ljava/util/List;Ljava/util/Comparator;)VL
-reverseOrder():java.util.Collections#reverseOrder()Ljava/util/Comparator;q
-+shuffle(Ljava/util/List;Ljava/util/Random;)Bjava.util.Collections#shuffle(Ljava/util/List;Ljava/util/Random;)Vá
-,unmodifiableSortedMap(Ljava/util/SortedMap;)Wjava.util.Collections#unmodifiableSortedMap(Ljava/util/SortedMap;)Ljava/util/SortedMap;b
-max(Ljava/util/Collection;)Cjava.util.Collections#max(Ljava/util/Collection;)Ljava/lang/Object;ã
-8iteratorBinarySearch(Ljava/util/List;Ljava/lang/Object;)Ojava.util.Collections#iteratorBinarySearch(Ljava/util/List;Ljava/lang/Object;)Iµ
-MindexedBinarySearch(Ljava/util/List;Ljava/lang/Object;Ljava/util/Comparator;)djava.util.Collections#indexedBinarySearch(Ljava/util/List;Ljava/lang/Object;Ljava/util/Comparator;)IÅ
-(singletonSpliterator(Ljava/lang/Object;)Ujava.util.Collections#singletonSpliterator(Ljava/lang/Object;)Ljava/util/Spliterator;X
-emptyNavigableSet()Ajava.util.Collections#emptyNavigableSet()Ljava/util/NavigableSet;í
-4synchronizedList(Ljava/util/List;Ljava/lang/Object;)Zjava.util.Collections#synchronizedList(Ljava/util/List;Ljava/lang/Object;)Ljava/util/List;@
-emptyList()1java.util.Collections#emptyList()Ljava/util/List;G
-sort(Ljava/util/List;)-java.util.Collections#sort(Ljava/util/List;)Vi
-list(Ljava/util/Enumeration;)Hjava.util.Collections#list(Ljava/util/Enumeration;)Ljava/util/ArrayList;=
-
-emptySet()/java.util.Collections#emptySet()Ljava/util/Set;O
-rotate1(Ljava/util/List;I)1java.util.Collections#rotate1(Ljava/util/List;I)VX
-emptyListIterator()Ajava.util.Collections#emptyListIterator()Ljava/util/ListIterator;i
- synchronizedMap(Ljava/util/Map;)Ejava.util.Collections#synchronizedMap(Ljava/util/Map;)Ljava/util/Map;O
-rotate2(Ljava/util/List;I)1java.util.Collections#rotate2(Ljava/util/List;I)Ve
-newSetFromMap(Ljava/util/Map;)Cjava.util.Collections#newSetFromMap(Ljava/util/Map;)Ljava/util/Set;k
-(eq(Ljava/lang/Object;Ljava/lang/Object;)?java.util.Collections#eq(Ljava/lang/Object;Ljava/lang/Object;)Zç
-2singletonMap(Ljava/lang/Object;Ljava/lang/Object;)Wjava.util.Collections#singletonMap(Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/Map;=
-
-emptyMap()/java.util.Collections#emptyMap()Ljava/util/Map;ã
-0checkedQueue(Ljava/util/Queue;Ljava/lang/Class;)Wjava.util.Collections#checkedQueue(Ljava/util/Queue;Ljava/lang/Class;)Ljava/util/Queue;i
- unmodifiableMap(Ljava/util/Map;)Ejava.util.Collections#unmodifiableMap(Ljava/util/Map;)Ljava/util/Map;L
-emptyIterator()9java.util.Collections#emptyIterator()Ljava/util/Iterator;¡
-IcheckedSortedMap(Ljava/util/SortedMap;Ljava/lang/Class;Ljava/lang/Class;)tjava.util.Collections#checkedSortedMap(Ljava/util/SortedMap;Ljava/lang/Class;Ljava/lang/Class;)Ljava/util/SortedMap;∞
-@synchronizedCollection(Ljava/util/Collection;Ljava/lang/Object;)ljava.util.Collections#synchronizedCollection(Ljava/util/Collection;Ljava/lang/Object;)Ljava/util/Collection;{
-0indexOfSubList(Ljava/util/List;Ljava/util/List;)Gjava.util.Collections#indexOfSubList(Ljava/util/List;Ljava/util/List;)Iñ
-2unmodifiableNavigableSet(Ljava/util/NavigableSet;)`java.util.Collections#unmodifiableNavigableSet(Ljava/util/NavigableSet;)Ljava/util/NavigableSet;É
-4lastIndexOfSubList(Ljava/util/List;Ljava/util/List;)Kjava.util.Collections#lastIndexOfSubList(Ljava/util/List;Ljava/util/List;)Ix
-%singletonIterator(Ljava/lang/Object;)Ojava.util.Collections#singletonIterator(Ljava/lang/Object;)Ljava/util/Iterator;q
-"zeroLengthArray(Ljava/lang/Class;)Kjava.util.Collections#zeroLengthArray(Ljava/lang/Class;)[Ljava/lang/Object;M
-shuffle(Ljava/util/List;)0java.util.Collections#shuffle(Ljava/util/List;)V}
-1addAll(Ljava/util/Collection;[Ljava/lang/Object;)Hjava.util.Collections#addAll(Ljava/util/Collection;[Ljava/lang/Object;)ZÅ
-,checkedSet(Ljava/util/Set;Ljava/lang/Class;)Qjava.util.Collections#checkedSet(Ljava/util/Set;Ljava/lang/Class;)Ljava/util/Set;å
-.synchronizedCollection(Ljava/util/Collection;)Zjava.util.Collections#synchronizedCollection(Ljava/util/Collection;)Ljava/util/Collection;b
-nCopies(ILjava/lang/Object;)Bjava.util.Collections#nCopies(ILjava/lang/Object;)Ljava/util/List;á
-,synchronizedSortedMap(Ljava/util/SortedMap;)Wjava.util.Collections#synchronizedSortedMap(Ljava/util/SortedMap;)Ljava/util/SortedMap;Q
-swap([Ljava/lang/Object;II)2java.util.Collections#swap([Ljava/lang/Object;II)Vi
- synchronizedSet(Ljava/util/Set;)Ejava.util.Collections#synchronizedSet(Ljava/util/Set;)Ljava/util/Set;U
-emptyEnumeration()?java.util.Collections#emptyEnumeration()Ljava/util/Enumeration;∑
-NiteratorBinarySearch(Ljava/util/List;Ljava/lang/Object;Ljava/util/Comparator;)ejava.util.Collections#iteratorBinarySearch(Ljava/util/List;Ljava/lang/Object;Ljava/util/Comparator;)Ih
-get(Ljava/util/ListIterator;I)Fjava.util.Collections#get(Ljava/util/ListIterator;I)Ljava/lang/Object;õ
-@replaceAll(Ljava/util/List;Ljava/lang/Object;Ljava/lang/Object;)Wjava.util.Collections#replaceAll(Ljava/util/List;Ljava/lang/Object;Ljava/lang/Object;)ZK
-swap(Ljava/util/List;II)/java.util.Collections#swap(Ljava/util/List;II)Vc
-singleton(Ljava/lang/Object;)Bjava.util.Collections#singleton(Ljava/lang/Object;)Ljava/util/Set;á
-,synchronizedSortedSet(Ljava/util/SortedSet;)Wjava.util.Collections#synchronizedSortedSet(Ljava/util/SortedSet;)Ljava/util/SortedSet;â
-7indexedBinarySearch(Ljava/util/List;Ljava/lang/Object;)Njava.util.Collections#indexedBinarySearch(Ljava/util/List;Ljava/lang/Object;)Iñ
-2synchronizedNavigableSet(Ljava/util/NavigableSet;)`java.util.Collections#synchronizedNavigableSet(Ljava/util/NavigableSet;)Ljava/util/NavigableSet;n
-"synchronizedList(Ljava/util/List;)Hjava.util.Collections#synchronizedList(Ljava/util/List;)Ljava/util/List;á
-6disjoint(Ljava/util/Collection;Ljava/util/Collection;)Mjava.util.Collections#disjoint(Ljava/util/Collection;Ljava/util/Collection;)Zk
-(fill(Ljava/util/List;Ljava/lang/Object;)?java.util.Collections#fill(Ljava/util/List;Ljava/lang/Object;)Vü
-8checkedSortedSet(Ljava/util/SortedSet;Ljava/lang/Class;)cjava.util.Collections#checkedSortedSet(Ljava/util/SortedSet;Ljava/lang/Class;)Ljava/util/SortedSet;Û]
+drop()!com.jcraft.jroar.PlayFile#drop()VÛ]
 java.util.logging.Loggerjava.lang.ObjectF
 isLevelInitialized().java.util.logging.Logger#isLevelInitialized()Zd
 #fine(Ljava/util/function/Supplier;)=java.util.logging.Logger#fine(Ljava/util/function/Supplier;)Vî

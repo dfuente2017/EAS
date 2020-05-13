@@ -61,7 +61,7 @@ class PlayFile extends Source implements Runnable {
         HttpServer.source_connections++;
         this.source = "playlist";
         if (file.startsWith(HTTP) && file.endsWith(".m3u")) {
-            ArrayList<String> foo = (ArrayList<String>) Collections.synchronizedList(new ArrayList<String>());
+            List<String> foo = Collections.synchronizedList(new ArrayList<String>());
             if (!foo.isEmpty()) {
                 this.files = new String[foo.size()];
                 for (int i = 0; i < foo.size(); i++) {
@@ -101,7 +101,7 @@ class PlayFile extends Source implements Runnable {
         fileLastm = auxFile.lastModified();
         BufferedReader d
                 = new BufferedReader(new InputStreamReader(new FileInputStream(auxFile)));
-        ArrayList<String> v = (ArrayList) Collections.synchronizedCollection(new ArrayList<String>());
+        List<String> v = Collections.synchronizedList(new ArrayList<String>());
         try {
             while (true) {
                 String s = d.readLine();
@@ -142,7 +142,7 @@ class PlayFile extends Source implements Runnable {
     String status = "status0";
 
     public void run() {
-        ArrayList<String> httpHeader = (ArrayList<String>) Collections.synchronizedCollection(new ArrayList<String>());
+        List<String> httpHeader = Collections.synchronizedList(new ArrayList<String>());
         httpHeader.add("HTTP/1.0 200 OK");
         httpHeader.add("Content-Type: application/x-ogg");
 

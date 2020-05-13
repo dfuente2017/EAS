@@ -1,0 +1,1 @@
+g 2tsXhrhout/production/EAS-Sonar/.scannerwork/.sonartmp/eslint-bridge-bundle/package/lib/rules/regular-expr.d.ts

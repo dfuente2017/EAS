@@ -1,0 +1,1 @@
+p 2tsXhrrout/production/EAS-Sonar/.scannerwork/.sonartmp/eslint-bridge-bundle/package/lib/rules/sonar-block-scoped-var.d.ts
