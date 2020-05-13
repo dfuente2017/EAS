@@ -53,6 +53,7 @@ Global server settings:
 Project server settings:
 Project scanner properties:
   - sonar.host.url=https://sonarcloud.io
+  - sonar.java.binaries=D:\RepositorioGitHubDesktop\EAS-Sonar\com\jcraft
   - sonar.login=******
   - sonar.organization=dfuente2017
   - sonar.projectBaseDir=D:\RepositorioGitHubDesktop\EAS-Sonar

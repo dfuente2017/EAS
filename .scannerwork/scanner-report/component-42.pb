@@ -1,0 +1,1 @@
+* 2xmlXhr*out/production/EAS-Sonar/.idea/modules.xml
