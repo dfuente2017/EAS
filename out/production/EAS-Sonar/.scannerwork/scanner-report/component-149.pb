@@ -1,1 +1,0 @@
-• 2jsXPhr_out/production/EAS-Sonar/.scannerwork/.sonartmp/eslint-bridge-bundle/package/lib/rules/xpath.js

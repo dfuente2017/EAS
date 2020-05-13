@@ -1,1 +1,0 @@
-8 2jsX hrhout/production/EAS-Sonar/.scannerwork/.sonartmp/eslint-bridge-bundle/package/lib/rules/no-try-promise.js

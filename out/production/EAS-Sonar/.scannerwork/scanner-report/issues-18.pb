@@ -1,7 +1,6 @@
-ê
-javaS1319uThe type of the "httpHeader" object should be an interface such as "List" rather than the implementation "ArrayList". 2// J
+J
 javaS3740/Provide the parametrized type for this generic. 2""  J
-javaS3740/Provide the parametrized type for this generic. 2// V
+javaS3740/Provide the parametrized type for this generic. 2// V
 javaS107<Method has 8 parameters, which is greater than 7 authorized. 2// Ä
 javaS1149eReplace the synchronized class "Vector" by an unsynchronized one such as "ArrayList" or "LinkedList". 2""  C
 javaS108)Either remove or fill this block of code. 2LL C

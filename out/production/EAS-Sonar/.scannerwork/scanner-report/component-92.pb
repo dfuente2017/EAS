@@ -1,1 +1,0 @@
-\ 2jsX`hrrout/production/EAS-Sonar/.scannerwork/.sonartmp/eslint-bridge-bundle/package/lib/rules/prefer-promise-shorthand.js

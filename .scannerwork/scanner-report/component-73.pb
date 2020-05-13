@@ -1,1 +1,0 @@
-I 2tsXhrsout/production/EAS-Sonar/.scannerwork/.sonartmp/eslint-bridge-bundle/package/lib/rules/no-useless-intersection.d.ts

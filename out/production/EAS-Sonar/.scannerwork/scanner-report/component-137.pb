@@ -1,1 +1,0 @@
-‰ 2jsX_hrnout/production/EAS-Sonar/.scannerwork/.sonartmp/eslint-bridge-bundle/package/lib/rules/updated-loop-counter.js

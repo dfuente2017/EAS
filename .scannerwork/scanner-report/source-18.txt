@@ -44,7 +44,7 @@ String touched="not yet";
     }
   }
 
-  public void write(ArrayList httpHeader, byte[] header,
+  public void write(List httpHeader, byte[] header,
 		    byte[] foo, int foostart, int foolength,
 		    byte[] bar, int barstart, int barlength) throws IOException{
 touched="done";

@@ -1,1 +1,0 @@
-> 2jsX£hrwout/production/EAS-Sonar/.scannerwork/.sonartmp/eslint-bridge-bundle/package/lib/rules/no-unenclosed-multiline-block.js

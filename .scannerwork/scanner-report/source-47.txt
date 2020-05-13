@@ -1,80 +1,81 @@
 "use strict";
-/*
- * SonarQube JavaScript Plugin
- * Copyright (C) 2011-2020 SonarSource SA
- * mailto:info AT sonarsource DOT com
- *
- * This program is free software; you can redistribute it and/or
- * modify it under the terms of the GNU Lesser General Public
- * License as published by the Free Software Foundation; either
- * version 3 of the License, or (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
- * Lesser General Public License for more details.
- *
- * You should have received a copy of the GNU Lesser General Public License
- * along with this program; if not, write to the Free Software Foundation,
- * Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
- */
-// https://jira.sonarsource.com/browse/RSPEC-1110
 Object.defineProperty(exports, "__esModule", { value: true });
-const nodes_1 = require("eslint-plugin-sonarjs/lib/utils/nodes");
-const utils_1 = require("./utils");
-exports.rule = {
-    meta: {
-        schema: [
-            {
-                // internal parameter for rules having secondary locations
-                enum: ['sonar-runtime'],
-            },
-        ],
-    },
-    create(context) {
-        return {
-            '*': function (node) {
-                checkRedundantParentheses(context.getSourceCode(), node, context);
-            },
-        };
-    },
-};
-function checkRedundantParentheses(sourceCode, node, context) {
-    const parenthesesPairsAroundNode = getParenthesesPairsAround(sourceCode, node, node);
-    const parent = nodes_1.getParent(context);
-    // Ignore parentheses pair from the parent node
-    if (!!parent && isInParentNodeParentheses(node, parent)) {
-        parenthesesPairsAroundNode.pop();
-    }
-    // One pair of parentheses is allowed for readability purposes
-    parenthesesPairsAroundNode.shift();
-    parenthesesPairsAroundNode.forEach(parentheses => {
-        context.report({
-            message: utils_1.toEncodedMessage(`Remove these useless parentheses.`, [
-                parentheses.closingParenthesis,
-            ]),
-            loc: parentheses.openingParenthesis.loc,
+const express = require("express");
+const stylelint = require("stylelint");
+const fs = require("fs");
+const bodyParser = require("body-parser");
+// for testing purposes
+let log = console.log;
+let logError = console.error;
+function setLogHandlersForTests(logHandler, errorHandler) {
+    log = logHandler;
+    logError = errorHandler;
+}
+exports.setLogHandlersForTests = setLogHandlersForTests;
+function start(port = 0) {
+    return new Promise(resolve => {
+        log("DEBUG starting stylelint-bridge server at port", port);
+        const app = express();
+        app.use(bodyParser.json());
+        app.post("/analyze", analyzeWithStylelint);
+        app.get("/status", (_, resp) => resp.send("OK!"));
+        app.post("/close", (_req, resp) => {
+            console.log("DEBUG stylelint-bridge server will shutdown");
+            resp.end(() => {
+                server.close();
+            });
+        });
+        // every time something is wrong we log error and send empty response (with 0 issues)
+        // it's important to keep this call last in configuring "app"
+        app.use((error, _req, response, _next) => processError(error, response));
+        const server = app.listen(port, () => {
+            log("DEBUG stylelint-bridge server is running at port", server.address().port);
+            resolve(server);
         });
     });
 }
-function getParenthesesPairsAround(sourceCode, start, end) {
-    const tokenBefore = sourceCode.getTokenBefore(start);
-    const tokenAfter = sourceCode.getTokenAfter(end);
-    if (!!tokenBefore && !!tokenAfter && tokenBefore.value === '(' && tokenAfter.value === ')') {
-        return [
-            { openingParenthesis: tokenBefore, closingParenthesis: tokenAfter },
-            ...getParenthesesPairsAround(sourceCode, tokenBefore, tokenAfter),
-        ];
+exports.start = start;
+function analyzeWithStylelint(request, response) {
+    const parsedRequest = request.body;
+    const { filePath, fileContent, configFile } = parsedRequest;
+    const code = typeof fileContent == "string" ? fileContent : getFileContent(filePath);
+    const options = {
+        code,
+        codeFilename: filePath,
+        configFile
+    };
+    stylelint
+        .lint(options)
+        .then(result => response.json(toIssues(result.results, filePath)))
+        .catch(error => processError(error, response));
+}
+function processError(error, response) {
+    logError(error);
+    response.json([]);
+}
+function toIssues(results, filePath) {
+    const analysisResponse = [];
+    // we should have only one element in 'results' as we are analyzing only 1 file
+    results.forEach(result => {
+        // to avoid reporting on "fake" source like <input ccs 1>
+        if (result.source !== filePath) {
+            log(`DEBUG For file [${filePath}] received issues with [${result.source}] as a source. They will not be reported.`);
+            return;
+        }
+        result.warnings.forEach(warning => analysisResponse.push({
+            line: warning.line,
+            text: warning.text,
+            rule: warning.rule
+        }));
+    });
+    return analysisResponse;
+}
+function getFileContent(filePath) {
+    const fileContent = fs.readFileSync(filePath, { encoding: "utf8" });
+    // strip BOM
+    if (fileContent.charCodeAt(0) === 0xfeff) {
+        return fileContent.slice(1);
     }
-    return [];
+    return fileContent;
 }
-function isInParentNodeParentheses(node, parent) {
-    const nodeIsInConditionOfParent = (parent.type === 'IfStatement' ||
-        parent.type === 'WhileStatement' ||
-        parent.type === 'DoWhileStatement') &&
-        parent.test === node;
-    const nodeIsArgumentOfCallExpression = (parent.type === 'CallExpression' || parent.type === 'NewExpression') &&
-        parent.arguments.includes(node);
-    return nodeIsInConditionOfParent || nodeIsArgumentOfCallExpression;
-}
-//# sourceMappingURL=no-redundant-parentheses.js.map
+//# sourceMappingURL=server.js.map

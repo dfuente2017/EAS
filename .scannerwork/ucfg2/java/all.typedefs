@@ -917,79 +917,13 @@ nanoTime()java.lang.System#nanoTime()Jt
 readline(Ljava/io/InputStream;)Fcom.jcraft.jroar.M3u#readline(Ljava/io/InputStream;)Ljava/lang/String;.
 
 register() com.jcraft.jroar.M3u#register()V
-Clientjava.lang.Object∆
+Clientjava.lang.Objectº
 com.jcraft.jroar.HttpClientClientF
 
 toString()8com.jcraft.jroar.HttpClient#toString()Ljava/lang/String;7
-isRunning()(com.jcraft.jroar.HttpClient#isRunning()Zm
-&write(Ljava/util/ArrayList;[B[BII[BII)Ccom.jcraft.jroar.HttpClient#write(Ljava/util/ArrayList;[B[BII[BII)V/
-close()$com.jcraft.jroar.HttpClient#close()Vç'
-java.util.ArrayListjava.util.RandomAccessjava.util.Listjava.lang.Cloneablejava.util.AbstractListjava.io.SerializableM
-equals(Ljava/lang/Object;)/java.util.ArrayList#equals(Ljava/lang/Object;)Z7
-removeRange(II)$java.util.ArrayList#removeRange(II)V[
-!removeAll(Ljava/util/Collection;)6java.util.ArrayList#removeAll(Ljava/util/Collection;)ZM
-remove(Ljava/lang/Object;)/java.util.ArrayList#remove(Ljava/lang/Object;)ZL
-listIterator():java.util.ArrayList#listIterator()Ljava/util/ListIterator;=
-	toArray()0java.util.ArrayList#toArray()[Ljava/lang/Object;+
-	<init>(I)java.util.ArrayList#<init>(I)V7
-hugeCapacity(I)$java.util.ArrayList#hugeCapacity(I)Ie
-&forEach(Ljava/util/function/Consumer;);java.util.ArrayList#forEach(Ljava/util/function/Consumer;)Ve
-&equalsArrayList(Ljava/util/ArrayList;);java.util.ArrayList#equalsArrayList(Ljava/util/ArrayList;)Z)
-<init>()java.util.ArrayList#<init>()V6
-get(I),java.util.ArrayList#get(I)Ljava/lang/Object;g
-'readObject(Ljava/io/ObjectInputStream;)<java.util.ArrayList#readObject(Ljava/io/ObjectInputStream;)VL
-outOfBoundsMsg(I)7java.util.ArrayList#outOfBoundsMsg(I)Ljava/lang/String;'
-clear()java.util.ArrayList#clear()VI
-add(ILjava/lang/Object;)-java.util.ArrayList#add(ILjava/lang/Object;)V+
-	isEmpty()java.util.ArrayList#isEmpty()Z>
-subList(II)/java.util.ArrayList#subList(II)Ljava/util/List;W
-lastIndexOf(Ljava/lang/Object;)4java.util.ArrayList#lastIndexOf(Ljava/lang/Object;)Io
-+add(Ljava/lang/Object;[Ljava/lang/Object;I)@java.util.ArrayList#add(Ljava/lang/Object;[Ljava/lang/Object;I)VO
-indexOf(Ljava/lang/Object;)0java.util.ArrayList#indexOf(Ljava/lang/Object;)I1
-trimToSize()!java.util.ArrayList#trimToSize()V]
-"indexOfRange(Ljava/lang/Object;II)7java.util.ArrayList#indexOfRange(Ljava/lang/Object;II)IK
-checkForComodification(I).java.util.ArrayList#checkForComodification(I)VZ
-set(ILjava/lang/Object;)>java.util.ArrayList#set(ILjava/lang/Object;)Ljava/lang/Object;N
-outOfBoundsMsg(II)8java.util.ArrayList#outOfBoundsMsg(II)Ljava/lang/String;G
-add(Ljava/lang/Object;),java.util.ArrayList#add(Ljava/lang/Object;)Z5
-newCapacity(I)#java.util.ArrayList#newCapacity(I)I8
-clone()-java.util.ArrayList#clone()Ljava/lang/Object;e
-&batchRemove(Ljava/util/Collection;ZII);java.util.ArrayList#batchRemove(Ljava/util/Collection;ZII)ZU
-<init>(Ljava/util/Collection;)3java.util.ArrayList#<init>(Ljava/util/Collection;)VÉ
-5replaceAllRange(Ljava/util/function/UnaryOperator;II)Jjava.util.ArrayList#replaceAllRange(Ljava/util/function/UnaryOperator;II)Vg
-'shiftTailOverGap([Ljava/lang/Object;II)<java.util.ArrayList#shiftTailOverGap([Ljava/lang/Object;II)V;
-ensureCapacity(I)&java.util.ArrayList#ensureCapacity(I)VF
-elementData(I)4java.util.ArrayList#elementData(I)Ljava/lang/Object;/
-setBit([JI) java.util.ArrayList#setBit([JI)V9
-grow(I).java.util.ArrayList#grow(I)[Ljava/lang/Object;c
-toArray([Ljava/lang/Object;)Cjava.util.ArrayList#toArray([Ljava/lang/Object;)[Ljava/lang/Object;<
-	remove(I)/java.util.ArrayList#remove(I)Ljava/lang/Object;Q
-contains(Ljava/lang/Object;)1java.util.ArrayList#contains(Ljava/lang/Object;)Zm
-*removeIf(Ljava/util/function/Predicate;II)?java.util.ArrayList#removeIf(Ljava/util/function/Predicate;II)Ze
-&lastIndexOfRange(Ljava/lang/Object;II);java.util.ArrayList#lastIndexOfRange(Ljava/lang/Object;II)I-
-
-hashCode()java.util.ArrayList#hashCode()Ii
-(removeIf(Ljava/util/function/Predicate;)=java.util.ArrayList#removeIf(Ljava/util/function/Predicate;)ZW
-equalsRange(Ljava/util/List;II)4java.util.ArrayList#equalsRange(Ljava/util/List;II)ZQ
-sort(Ljava/util/Comparator;)1java.util.ArrayList#sort(Ljava/util/Comparator;)VN
-listIterator(I);java.util.ArrayList#listIterator(I)Ljava/util/ListIterator;Y
- fastRemove([Ljava/lang/Object;I)5java.util.ArrayList#fastRemove([Ljava/lang/Object;I)Vh
-elementAt([Ljava/lang/Object;I)Ejava.util.ArrayList#elementAt([Ljava/lang/Object;I)Ljava/lang/Object;?
-rangeCheckForAdd(I)(java.util.ArrayList#rangeCheckForAdd(I)V;
-checkInvariants()&java.util.ArrayList#checkInvariants()V;
-hashCodeRange(II)&java.util.ArrayList#hashCodeRange(II)IW
-addAll(ILjava/util/Collection;)4java.util.ArrayList#addAll(ILjava/util/Collection;)ZU
-addAll(Ljava/util/Collection;)3java.util.ArrayList#addAll(Ljava/util/Collection;)Z7
-grow()-java.util.ArrayList#grow()[Ljava/lang/Object;u
-.replaceAll(Ljava/util/function/UnaryOperator;)Cjava.util.ArrayList#replaceAll(Ljava/util/function/UnaryOperator;)V[
-!retainAll(Ljava/util/Collection;)6java.util.ArrayList#retainAll(Ljava/util/Collection;)Z*
-nBits(I)java.util.ArrayList#nBits(I)[J@
-
-iterator()2java.util.ArrayList#iterator()Ljava/util/Iterator;I
-spliterator()8java.util.ArrayList#spliterator()Ljava/util/Spliterator;1
-isClear([JI)!java.util.ArrayList#isClear([JI)Zk
-)writeObject(Ljava/io/ObjectOutputStream;)>java.util.ArrayList#writeObject(Ljava/io/ObjectOutputStream;)V%
-size()java.util.ArrayList#size()Iœ
+isRunning()(com.jcraft.jroar.HttpClient#isRunning()Zc
+!write(Ljava/util/List;[B[BII[BII)>com.jcraft.jroar.HttpClient#write(Ljava/util/List;[B[BII[BII)V/
+close()$com.jcraft.jroar.HttpClient#close()Vœ
 com.jcraft.jogg.SyncStatejava.lang.Object1
 	buffer(I)$com.jcraft.jogg.SyncState#buffer(I)I-
 reset()"com.jcraft.jogg.SyncState#reset()I/
@@ -1721,7 +1655,73 @@ toString()3com.jcraft.jroar.Proxy#toString()Ljava/lang/String;(
 kick()com.jcraft.jroar.Proxy#kick()V0
 
 init_ogg()"com.jcraft.jroar.Proxy#init_ogg()V(
-drop()com.jcraft.jroar.Proxy#drop()V◊M
+drop()com.jcraft.jroar.Proxy#drop()Vç'
+java.util.ArrayListjava.util.RandomAccessjava.util.Listjava.lang.Cloneablejava.util.AbstractListjava.io.SerializableM
+equals(Ljava/lang/Object;)/java.util.ArrayList#equals(Ljava/lang/Object;)Z7
+removeRange(II)$java.util.ArrayList#removeRange(II)V[
+!removeAll(Ljava/util/Collection;)6java.util.ArrayList#removeAll(Ljava/util/Collection;)ZM
+remove(Ljava/lang/Object;)/java.util.ArrayList#remove(Ljava/lang/Object;)ZL
+listIterator():java.util.ArrayList#listIterator()Ljava/util/ListIterator;=
+	toArray()0java.util.ArrayList#toArray()[Ljava/lang/Object;+
+	<init>(I)java.util.ArrayList#<init>(I)V7
+hugeCapacity(I)$java.util.ArrayList#hugeCapacity(I)Ie
+&forEach(Ljava/util/function/Consumer;);java.util.ArrayList#forEach(Ljava/util/function/Consumer;)Ve
+&equalsArrayList(Ljava/util/ArrayList;);java.util.ArrayList#equalsArrayList(Ljava/util/ArrayList;)Z)
+<init>()java.util.ArrayList#<init>()V6
+get(I),java.util.ArrayList#get(I)Ljava/lang/Object;g
+'readObject(Ljava/io/ObjectInputStream;)<java.util.ArrayList#readObject(Ljava/io/ObjectInputStream;)VL
+outOfBoundsMsg(I)7java.util.ArrayList#outOfBoundsMsg(I)Ljava/lang/String;'
+clear()java.util.ArrayList#clear()VI
+add(ILjava/lang/Object;)-java.util.ArrayList#add(ILjava/lang/Object;)V+
+	isEmpty()java.util.ArrayList#isEmpty()Z>
+subList(II)/java.util.ArrayList#subList(II)Ljava/util/List;W
+lastIndexOf(Ljava/lang/Object;)4java.util.ArrayList#lastIndexOf(Ljava/lang/Object;)Io
++add(Ljava/lang/Object;[Ljava/lang/Object;I)@java.util.ArrayList#add(Ljava/lang/Object;[Ljava/lang/Object;I)VO
+indexOf(Ljava/lang/Object;)0java.util.ArrayList#indexOf(Ljava/lang/Object;)I1
+trimToSize()!java.util.ArrayList#trimToSize()V]
+"indexOfRange(Ljava/lang/Object;II)7java.util.ArrayList#indexOfRange(Ljava/lang/Object;II)IK
+checkForComodification(I).java.util.ArrayList#checkForComodification(I)VZ
+set(ILjava/lang/Object;)>java.util.ArrayList#set(ILjava/lang/Object;)Ljava/lang/Object;N
+outOfBoundsMsg(II)8java.util.ArrayList#outOfBoundsMsg(II)Ljava/lang/String;G
+add(Ljava/lang/Object;),java.util.ArrayList#add(Ljava/lang/Object;)Z5
+newCapacity(I)#java.util.ArrayList#newCapacity(I)I8
+clone()-java.util.ArrayList#clone()Ljava/lang/Object;e
+&batchRemove(Ljava/util/Collection;ZII);java.util.ArrayList#batchRemove(Ljava/util/Collection;ZII)ZU
+<init>(Ljava/util/Collection;)3java.util.ArrayList#<init>(Ljava/util/Collection;)VÉ
+5replaceAllRange(Ljava/util/function/UnaryOperator;II)Jjava.util.ArrayList#replaceAllRange(Ljava/util/function/UnaryOperator;II)Vg
+'shiftTailOverGap([Ljava/lang/Object;II)<java.util.ArrayList#shiftTailOverGap([Ljava/lang/Object;II)V;
+ensureCapacity(I)&java.util.ArrayList#ensureCapacity(I)VF
+elementData(I)4java.util.ArrayList#elementData(I)Ljava/lang/Object;/
+setBit([JI) java.util.ArrayList#setBit([JI)V9
+grow(I).java.util.ArrayList#grow(I)[Ljava/lang/Object;c
+toArray([Ljava/lang/Object;)Cjava.util.ArrayList#toArray([Ljava/lang/Object;)[Ljava/lang/Object;<
+	remove(I)/java.util.ArrayList#remove(I)Ljava/lang/Object;Q
+contains(Ljava/lang/Object;)1java.util.ArrayList#contains(Ljava/lang/Object;)Zm
+*removeIf(Ljava/util/function/Predicate;II)?java.util.ArrayList#removeIf(Ljava/util/function/Predicate;II)Ze
+&lastIndexOfRange(Ljava/lang/Object;II);java.util.ArrayList#lastIndexOfRange(Ljava/lang/Object;II)I-
+
+hashCode()java.util.ArrayList#hashCode()Ii
+(removeIf(Ljava/util/function/Predicate;)=java.util.ArrayList#removeIf(Ljava/util/function/Predicate;)ZW
+equalsRange(Ljava/util/List;II)4java.util.ArrayList#equalsRange(Ljava/util/List;II)ZQ
+sort(Ljava/util/Comparator;)1java.util.ArrayList#sort(Ljava/util/Comparator;)VN
+listIterator(I);java.util.ArrayList#listIterator(I)Ljava/util/ListIterator;Y
+ fastRemove([Ljava/lang/Object;I)5java.util.ArrayList#fastRemove([Ljava/lang/Object;I)Vh
+elementAt([Ljava/lang/Object;I)Ejava.util.ArrayList#elementAt([Ljava/lang/Object;I)Ljava/lang/Object;?
+rangeCheckForAdd(I)(java.util.ArrayList#rangeCheckForAdd(I)V;
+checkInvariants()&java.util.ArrayList#checkInvariants()V;
+hashCodeRange(II)&java.util.ArrayList#hashCodeRange(II)IW
+addAll(ILjava/util/Collection;)4java.util.ArrayList#addAll(ILjava/util/Collection;)ZU
+addAll(Ljava/util/Collection;)3java.util.ArrayList#addAll(Ljava/util/Collection;)Z7
+grow()-java.util.ArrayList#grow()[Ljava/lang/Object;u
+.replaceAll(Ljava/util/function/UnaryOperator;)Cjava.util.ArrayList#replaceAll(Ljava/util/function/UnaryOperator;)V[
+!retainAll(Ljava/util/Collection;)6java.util.ArrayList#retainAll(Ljava/util/Collection;)Z*
+nBits(I)java.util.ArrayList#nBits(I)[J@
+
+iterator()2java.util.ArrayList#iterator()Ljava/util/Iterator;I
+spliterator()8java.util.ArrayList#spliterator()Ljava/util/Spliterator;1
+isClear([JI)!java.util.ArrayList#isClear([JI)Zk
+)writeObject(Ljava/io/ObjectOutputStream;)>java.util.ArrayList#writeObject(Ljava/io/ObjectOutputStream;)V%
+size()java.util.ArrayList#size()I◊M
 java.util.Collectionsjava.lang.Object£
 =checkedMap(Ljava/util/Map;Ljava/lang/Class;Ljava/lang/Class;)bjava.util.Collections#checkedMap(Ljava/util/Map;Ljava/lang/Class;Ljava/lang/Class;)Ljava/util/Map;ñ
 2unmodifiableNavigableMap(Ljava/util/NavigableMap;)`java.util.Collections#unmodifiableNavigableMap(Ljava/util/NavigableMap;)Ljava/util/NavigableMap;g
@@ -1903,7 +1903,7 @@ isClosed()java.net.Socket#isClosed()Z;
 isConnected()java.net.Socket#isConnected()ZS
 <init>(Ljava/net/InetAddress;I)0java.net.Socket#<init>(Ljava/net/InetAddress;I)Vy
 2setSocketImplFactory(Ljava/net/SocketImplFactory;)Cjava.net.Socket#setSocketImplFactory(Ljava/net/SocketImplFactory;)V1
-getOOBInline()java.net.Socket#getOOBInline()Zü
+getOOBInline()java.net.Socket#getOOBInline()ZÍ
 com.jcraft.jroar.PlayFilejava.lang.RunnableSources
 *setURLProperties(Ljava/net/URLConnection;)Ecom.jcraft.jroar.PlayFile#setURLProperties(Ljava/net/URLConnection;)V)
 run() com.jcraft.jroar.PlayFile#run()V9
@@ -1914,7 +1914,8 @@ isClosed()java.net.Socket#isClosed()Z;
 	initOgg()$com.jcraft.jroar.PlayFile#initOgg()Vy
 -<init>(Ljava/lang/String;[Ljava/lang/String;)Hcom.jcraft.jroar.PlayFile#<init>(Ljava/lang/String;[Ljava/lang/String;)V]
 updateFiles(Ljava/lang/String;):com.jcraft.jroar.PlayFile#updateFiles(Ljava/lang/String;)V+
-drop()!com.jcraft.jroar.PlayFile#drop()VÛ]
+drop()!com.jcraft.jroar.PlayFile#drop()VI
+constructorm3uFiles()0com.jcraft.jroar.PlayFile#constructorm3uFiles()VÛ]
 java.util.logging.Loggerjava.lang.ObjectF
 isLevelInitialized().java.util.logging.Logger#isLevelInitialized()Zd
 #fine(Ljava/util/function/Supplier;)=java.util.logging.Logger#fine(Ljava/util/function/Supplier;)Vî

@@ -1,1 +1,0 @@
-w 2jsX4hrnout/production/EAS-Sonar/.scannerwork/.sonartmp/eslint-bridge-bundle/package/lib/rules/sonar-no-fallthrough.js

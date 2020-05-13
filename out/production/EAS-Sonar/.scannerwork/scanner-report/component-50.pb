@@ -1,1 +1,0 @@
-2 2jsXOhrlout/production/EAS-Sonar/.scannerwork/.sonartmp/eslint-bridge-bundle/package/lib/rules/no-return-type-any.js

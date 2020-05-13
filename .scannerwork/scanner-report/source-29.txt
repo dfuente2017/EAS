@@ -80,7 +80,7 @@ HttpServer.source_connections++;
     //if(me==null) return; 
     lasttime=System.currentTimeMillis();
 
-    ArrayList httpHeader = (ArrayList) Collections.synchronizedCollection(new ArrayList<>());
+    List httpHeader = Collections.synchronizedList(new ArrayList<>());
     com.jcraft.jogg.Page[] pages=new com.jcraft.jogg.Page[10];
     int page_count=0;
 

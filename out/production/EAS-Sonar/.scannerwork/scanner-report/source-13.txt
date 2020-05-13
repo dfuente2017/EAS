@@ -38,7 +38,7 @@ abstract class Client {
         }
     }
 
-    abstract void write(ArrayList httpHeader, byte[] header,
+    abstract void write(List httpHeader, byte[] header,
                         byte[] foo, int foostart, int foolength,
                         byte[] bar, int barstart, int barlength) throws IOException;
 
