@@ -61,11 +61,11 @@ class PlayFile extends Source implements Runnable {
         HttpServer.source_connections++;
         this.source = "playlist";
         if (file.startsWith(HTTP) && file.endsWith(".m3u")) {
-            Vector<String> foo = JRoar.fetch_m3u(file);
+            ArrayList<String> foo = (ArrayList<String>) Collections.synchronizedList(new ArrayList<String>());
             if (!foo.isEmpty()) {
                 this.files = new String[foo.size()];
                 for (int i = 0; i < foo.size(); i++) {
-                    this.files[i] = foo.elementAt(i);
+                    this.files[i] = foo.get(i);
                 }
                 this.source = file;
             } else {
@@ -320,6 +320,7 @@ class PlayFile extends Source implements Runnable {
                                 try {
                                     Thread.sleep(sleep);
                                 } catch (Exception e) {
+                                    logger.log(Level.SEVERE,e.getMessage());
                                 }
                             }
                             status = "status12";
