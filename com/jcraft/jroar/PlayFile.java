@@ -31,6 +31,8 @@ import com.jcraft.jogg.*;
 class PlayFile extends Source implements Runnable {
     static final int BUFSIZE = 4096 * 2;
 
+    private final String HTTP = "http://";
+
     private InputStream bitStream = null;
 
     private SyncState oy;
@@ -54,10 +56,9 @@ class PlayFile extends Source implements Runnable {
         super(mountpoint);
         HttpServer.source_connections++;
         this.source = "playlist";
-        if (file.startsWith("http://") &&
-                file.endsWith(".m3u")) {
+        if (file.startsWith(HTTP) && file.endsWith(".m3u")) {
             Vector foo = JRoar.fetch_m3u(file);
-            if (foo.size() > 0) {
+            if (!foo.isEmpty()) {
                 this.files = new String[foo.size()];
                 for (int i = 0; i < foo.size(); i++) {
                     this.files[i] = (String) foo.elementAt(i);
@@ -73,7 +74,7 @@ class PlayFile extends Source implements Runnable {
         } else if (file.endsWith(".ogg") || file.endsWith(".spx")) {
             this.files = new String[1];
             this.files[0] = file;
-            if (file.startsWith("http://")) {
+            if (file.startsWith(HTTP)) {
                 this.source = file;
             }
         } else {
@@ -88,23 +89,21 @@ class PlayFile extends Source implements Runnable {
         }
     }
 
-    long file_lastm = 0;
+    long fileLastm = 0;
 
     private void updateFiles(String file) throws java.io.FileNotFoundException {
         System.out.println("loadPlaylist: " + file);
-        File _file = new File(file);
-        file_lastm = _file.lastModified();
+        File auxFile = new File(file);
+        fileLastm = auxFile.lastModified();
         BufferedReader d
-                = new BufferedReader(new InputStreamReader(new FileInputStream(_file)));
-        Vector v = new Vector();
+                = new BufferedReader(new InputStreamReader(new FileInputStream(auxFile)));
+        Vector<String> v = new Vector<>();
         try {
             while (true) {
                 String s = d.readLine();
                 if (s == null) break;
                 if (s.startsWith("#")) continue;
-                if (!s.startsWith("http://") &&
-                        !s.endsWith(".ogg") &&
-                        !s.endsWith(".spx"))
+                if (!s.startsWith(HTTP) && !s.endsWith(".ogg") && !s.endsWith(".spx"))
                     continue;
                 System.out.println("playFile (" + s + ")");
                 v.addElement(s);
@@ -118,7 +117,7 @@ class PlayFile extends Source implements Runnable {
         }
     }
 
-    void init_ogg() {
+    void initOgg() {
         oy = new SyncState();
         og = new com.jcraft.jogg.Page();
         buffer = null;
@@ -129,18 +128,6 @@ class PlayFile extends Source implements Runnable {
     public void kick() {
 
         if (me != null) {
-	/*
-      int size=listeners.size();
-      Client c=null;
-        c=(Client)(listeners.elementAt(1));
-System.out.println(c);
-        if(System.currentTimeMillis()-c.lasttime>1000){
-          try{
-            ((HttpClient)c).ms.close();
-	  }
-          catch(Exception e){}
-	}
-	*/
             return;
         }
         me = new Thread(this);
@@ -148,19 +135,18 @@ System.out.println(c);
     }
 
     static String status = "status0";
-//static String file="??";
 
     public void run() {
-        Vector http_header = new Vector();
-        http_header.addElement("HTTP/1.0 200 OK");
-        http_header.addElement("Content-Type: application/x-ogg");
+        Vector<String> httpHeader = new Vector();
+        httpHeader.addElement("HTTP/1.0 200 OK");
+        httpHeader.addElement("Content-Type: application/x-ogg");
 
         int ii = -1;
-        loop:
+        //loop:
         while (me != null) {
             ii++;
             if (this.file != null &&
-                    file_lastm < (new File(this.file)).lastModified()) {
+                    fileLastm < (new File(this.file)).lastModified()) {
                 try {
                     updateFiles(file);
                 } catch (Exception e) {
@@ -171,10 +157,8 @@ System.out.println(c);
 
             status = "status1";
 
-//System.out.println("status: "+status+" files.length="+files.length);
-
             bitStream = null;
-            if (files[ii].startsWith("http://")) {
+            if (files[ii].startsWith(HTTP)) {
                 try {
                     URL url = new URL(files[ii]);
                     URLConnection urlc = url.openConnection();
@@ -189,8 +173,6 @@ System.out.println(c);
                 bitStream = System.in;
             }
 
-//System.out.println("bitStream: "+bitStream);
-
             if (bitStream == null) {
                 try {
                     bitStream = new FileInputStream(files[ii]);
@@ -198,8 +180,6 @@ System.out.println(c);
                     System.out.println(e);
                 }
             }
-
-//System.out.println("bitStream: "+bitStream);
 
             if (bitStream == null) {
                 files[ii] = null;
@@ -216,20 +196,16 @@ System.out.println(c);
                 continue;
             }
 
-//System.out.println("bitStream: "+bitStream);
-
             file = files[ii];
             status = "status2";
 
-//System.out.println("file: "+file);
-
-            init_ogg();
+            initOgg();
 
             int serialno = -1;
             long granulepos = -1;
 
-            long start_time = -1;
-            long last_sample = 0;
+            long startTime = -1;
+            long lastSample = 0;
             long time = 0;
 
             ByteArrayOutputStream _header = new ByteArrayOutputStream();
@@ -247,7 +223,7 @@ System.out.println(c);
                 try {
                     bytes = bitStream.read(buffer, index, BUFSIZE);
                 } catch (Exception e) {
-                    System.err.println(e);
+                    System.err.println(e.getMessage());
                     eos = true;
                     continue;
                 }
@@ -266,17 +242,9 @@ System.out.println(c);
                     if (result == -1) { // missing or corrupt data at this page position
 //	    System.err.println("Corrupt or missing data in bitstream; continuing...");
                     } else {
-	    /*
-  	    if(serialno!=og.serialno()){
-              header=null;
-              serialno=og.serialno();
-	    }
-	    */
                         serialno = og.serialno();
                         granulepos = og.granulepos();
                         status = "status8";
-
-//System.out.println("og: "+og+", pos="+og.granulepos());
 
                         if ((granulepos == 0)
                                 || (granulepos == -1)          // hack for Speex
@@ -291,7 +259,6 @@ System.out.println(c);
                         } else {
                             if (header == null) {
                                 parseHeader(pages, page_count);
-//System.out.println("rate: "+current_info.rate);
                                 com.jcraft.jogg.Page foo;
                                 for (int i = 0; i < page_count; i++) {
                                     foo = pages[i];
@@ -302,8 +269,8 @@ System.out.println(c);
                                 _header.reset();
 
                                 page_count = 0;
-                                start_time = System.currentTimeMillis();
-                                last_sample = 0;
+                                startTime = System.currentTimeMillis();
+                                lastSample = 0;
                                 time = 0;
                             }
                         }
@@ -314,11 +281,11 @@ System.out.println(c);
                         int size = listeners.size();
 
                         Client c = null;
-                        for (int i = 0; i < size; ) {
+                        for (int i = 0; i < size; i++) {
                             status = "status10";
                             try {
                                 c = (Client) (listeners.elementAt(i));
-                                c.write(http_header, header,
+                                c.write(httpHeader, header,
                                         og.header_base, og.header, og.header_len,
                                         og.body_base, og.body, og.body_len);
                             } catch (Exception e) {
@@ -327,24 +294,21 @@ System.out.println(c);
                                 size--;
                                 continue;
                             }
-                            i++;
                         }
 //	    }
-status="status11";
-            if(granulepos!=0 &&
-	       key_serialno==serialno){
-status="status111";
-                if(last_sample==0){
-  	          time=(System.currentTimeMillis()-start_time)*1000;
-                }
+                        status = "status11";
+                        if (granulepos != 0 &&
+                                key_serialno == serialno) {
+                            status = "status111";
+                            if (lastSample == 0) {
+                                time = (System.currentTimeMillis() - startTime) * 1000;
+                            }
 
-                last_sample=granulepos;
-                long sleep=(time/1000)-(System.currentTimeMillis()-start_time);
-//System.out.println("sleep="+sleep);
-//if(sleep>10000){sleep=0; time=(System.currentTimeMillis()-start_time);}
+                            lastSample = granulepos;
+                            long sleep = (time / 1000) - (System.currentTimeMillis() - startTime);
+//if(sleep>10000){sleep=0; time=(System.currentTimeMillis()-startTime);}
                             status = "status112";
                             if (sleep > 0) {
-//System.out.println("sleep: "+sleep);
                                 try {
                                     Thread.sleep(sleep);
                                 } catch (Exception e) {
@@ -372,6 +336,7 @@ status="status111";
             try {
                 if (bitStream != null) bitStream.close();
             } catch (Exception e) {
+                System.err.println(e.getMessage());
             }
             bitStream = null;
             status = "status16";
@@ -391,9 +356,10 @@ status="status111";
     private void setURLProperties(URLConnection urlc) {
         if (HttpServer.myURL != null) {
             urlc.setRequestProperty("jroar-proxy", HttpServer.myURL + mountpoint);
-            //System.out.println(HttpServer.myURL+mountpoint);
-            if (JRoar.comment != null)
+
+            if (JRoar.comment != null) {
                 urlc.setRequestProperty("jroar-comment", JRoar.comment);
+            }
         }
     }
 
@@ -403,14 +369,15 @@ status="status111";
             try {
                 if (bitStream != null) bitStream.close();
             } catch (Exception e) {
+                System.err.println(e.getMessage());
             }
             bitStream = null;
             me = null;
         }
-        drop_clients();
+        dropClients();
     }
 
-    void drop_clients() {
+    void dropClients() {
         Client c = null;
         synchronized (listeners) {
             int size = listeners.size();
@@ -419,6 +386,7 @@ status="status111";
                 try {
                     c.close();
                 } catch (Exception e) {
+                    System.err.println(e.getMessage());
                 }
             }
             listeners.removeAllElements();
