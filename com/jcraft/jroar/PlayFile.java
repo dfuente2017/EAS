@@ -25,13 +25,17 @@ package com.jcraft.jroar;
 import java.io.*;
 import java.net.*;
 import java.util.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import com.jcraft.jogg.*;
 
 class PlayFile extends Source implements Runnable {
     static final int BUFSIZE = 4096 * 2;
 
-    private final String HTTP = "http://";
+    private static final String HTTP = "http://";
+
+    private Logger logger = Logger.getLogger(this.getClass().getName());
 
     private InputStream bitStream = null;
 
@@ -57,11 +61,11 @@ class PlayFile extends Source implements Runnable {
         HttpServer.source_connections++;
         this.source = "playlist";
         if (file.startsWith(HTTP) && file.endsWith(".m3u")) {
-            Vector foo = JRoar.fetch_m3u(file);
+            Vector<String> foo = JRoar.fetch_m3u(file);
             if (!foo.isEmpty()) {
                 this.files = new String[foo.size()];
                 for (int i = 0; i < foo.size(); i++) {
-                    this.files[i] = (String) foo.elementAt(i);
+                    this.files[i] = foo.elementAt(i);
                 }
                 this.source = file;
             } else {
@@ -82,7 +86,7 @@ class PlayFile extends Source implements Runnable {
             try {
                 updateFiles(file);
             } catch (Exception e) {
-                System.out.println(e);
+                System.err.println(e);
                 drop();
                 HttpServer.source_connections--;
             }
@@ -110,10 +114,11 @@ class PlayFile extends Source implements Runnable {
             }
             d.close();
         } catch (Exception ee) {
+            System.err.println(ee.getMessage());
         }
         this.files = new String[v.size()];
         for (int i = 0; i < v.size(); i++) {
-            this.files[i] = (String) v.elementAt(i);
+            this.files[i] = v.elementAt(i);
         }
     }
 
@@ -137,7 +142,7 @@ class PlayFile extends Source implements Runnable {
     static String status = "status0";
 
     public void run() {
-        Vector<String> httpHeader = new Vector();
+        Vector<String> httpHeader = new Vector<>();
         httpHeader.addElement("HTTP/1.0 200 OK");
         httpHeader.addElement("Content-Type: application/x-ogg");
 
@@ -167,7 +172,7 @@ class PlayFile extends Source implements Runnable {
 
                     bitStream = urlc.getInputStream();
                 } catch (Exception e) {
-                    System.out.println(e);
+                    System.err.println(e.getMessage());
                 }
             } else if (files[ii].equals("-")) {
                 bitStream = System.in;
@@ -177,7 +182,7 @@ class PlayFile extends Source implements Runnable {
                 try {
                     bitStream = new FileInputStream(files[ii]);
                 } catch (Exception e) {
-                    System.out.println(e);
+                    System.err.println(e.getMessage());
                 }
             }
 
@@ -208,10 +213,10 @@ class PlayFile extends Source implements Runnable {
             long lastSample = 0;
             long time = 0;
 
-            ByteArrayOutputStream _header = new ByteArrayOutputStream();
+            ByteArrayOutputStream headerByteArrayOutputStream = new ByteArrayOutputStream();
             byte[] header = null;
             com.jcraft.jogg.Page[] pages = new com.jcraft.jogg.Page[10];
-            int page_count = 0;
+            int pageCount = 0;
 
             boolean eos = false;
             while (!eos) {
@@ -250,25 +255,25 @@ class PlayFile extends Source implements Runnable {
                                 || (granulepos == -1)          // hack for Speex
                         ) {
 
-                            if (pages.length <= page_count) {
+                            if (pages.length <= pageCount) {
                                 com.jcraft.jogg.Page[] foo = new com.jcraft.jogg.Page[pages.length * 2];
                                 System.arraycopy(pages, 0, foo, 0, pages.length);
                                 pages = foo;
                             }
-                            pages[page_count++] = og.copy();
+                            pages[pageCount++] = og.copy();
                         } else {
                             if (header == null) {
-                                parseHeader(pages, page_count);
+                                parseHeader(pages, pageCount);
                                 com.jcraft.jogg.Page foo;
-                                for (int i = 0; i < page_count; i++) {
+                                for (int i = 0; i < pageCount; i++) {
                                     foo = pages[i];
-                                    _header.write(foo.header_base, foo.header, foo.header_len);
-                                    _header.write(foo.body_base, foo.body, foo.body_len);
+                                    headerByteArrayOutputStream.write(foo.header_base, foo.header, foo.header_len);
+                                    headerByteArrayOutputStream.write(foo.body_base, foo.body, foo.body_len);
                                 }
-                                header = _header.toByteArray();
-                                _header.reset();
+                                header = headerByteArrayOutputStream.toByteArray();
+                                headerByteArrayOutputStream.reset();
 
-                                page_count = 0;
+                                pageCount = 0;
                                 startTime = System.currentTimeMillis();
                                 lastSample = 0;
                                 time = 0;
@@ -289,10 +294,13 @@ class PlayFile extends Source implements Runnable {
                                         og.header_base, og.header, og.header_len,
                                         og.body_base, og.body, og.body_len);
                             } catch (Exception e) {
-                                c.close();
-                                removeListener(c);
-                                size--;
-                                continue;
+                                try{
+                                    c.close();
+                                    removeListener(c);
+                                    size--;
+                                }catch(Exception err) {
+                                    System.err.println(err.getMessage());
+                                }
                             }
                         }
 //	    }
@@ -346,6 +354,7 @@ class PlayFile extends Source implements Runnable {
         try {
             if (bitStream != null) bitStream.close();
         } catch (Exception e) {
+            System.err.println(e.getMessage());
         }
         bitStream = null;
         status = "status14";
@@ -386,7 +395,7 @@ class PlayFile extends Source implements Runnable {
                 try {
                     c.close();
                 } catch (Exception e) {
-                    System.err.println(e.getMessage());
+                    logger.log(Level.SEVERE,e.getMessage());
                 }
             }
             listeners.removeAllElements();
@@ -395,7 +404,6 @@ class PlayFile extends Source implements Runnable {
 
     void drop() {
         stop();
-        //drop_clients();
         super.drop();
     }
 }

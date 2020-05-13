@@ -1,0 +1,16 @@
+
+?com.jcraft.jroar.MySocket#getInputStream()Ljava/io/InputStream;N
+DD:/RepositorioGitHubDesktop/EAS-Sonar/com/jcraft/jroar/MySocket.java- -("3*õ
+3N
+DD:/RepositorioGitHubDesktop/EAS-Sonar/com/jcraft/jroar/MySocket.java. .(¬
+©
+N
+DD:/RepositorioGitHubDesktop/EAS-Sonar/com/jcraft/jroar/MySocket.java. .(
+%0java.io.DataInputStream"__id*2*0
+com.jcraft.jroar.MySocket"
+dataInputStream"q
+N
+DD:/RepositorioGitHubDesktop/EAS-Sonar/com/jcraft/jroar/MySocket.java.	 .( 
+
+%0java.io.DataInputStreamB
+com.jcraft.jroar.MySocket
