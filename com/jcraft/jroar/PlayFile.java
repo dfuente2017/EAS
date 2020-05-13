@@ -86,7 +86,7 @@ class PlayFile extends Source implements Runnable {
             try {
                 updateFiles(file);
             } catch (Exception e) {
-                logger.log(Level.SEVERE,e.getMessage());
+                logger.log(Level.SEVERE, e.getMessage());
                 drop();
                 HttpServer.source_connections--;
             }
@@ -114,7 +114,7 @@ class PlayFile extends Source implements Runnable {
             }
             d.close();
         } catch (Exception ee) {
-            logger.log(Level.SEVERE,ee.getMessage());
+            logger.log(Level.SEVERE, ee.getMessage());
         }
         this.files = new String[v.size()];
         for (int i = 0; i < v.size(); i++) {
@@ -139,7 +139,7 @@ class PlayFile extends Source implements Runnable {
         me.start();
     }
 
-    static String status = "status0";
+    String status = "status0";
 
     public void run() {
         Vector<String> httpHeader = new Vector<>();
@@ -172,7 +172,7 @@ class PlayFile extends Source implements Runnable {
 
                     bitStream = urlc.getInputStream();
                 } catch (Exception e) {
-                    logger.log(Level.SEVERE,e.getMessage());
+                    logger.log(Level.SEVERE, e.getMessage());
                 }
             } else if (files[ii].equals("-")) {
                 bitStream = System.in;
@@ -182,7 +182,7 @@ class PlayFile extends Source implements Runnable {
                 try {
                     bitStream = new FileInputStream(files[ii]);
                 } catch (Exception e) {
-                    logger.log(Level.SEVERE,e.getMessage());
+                    logger.log(Level.SEVERE, e.getMessage());
                 }
             }
 
@@ -228,7 +228,7 @@ class PlayFile extends Source implements Runnable {
                 try {
                     bytes = bitStream.read(buffer, index, BUFSIZE);
                 } catch (Exception e) {
-                    logger.log(Level.SEVERE,e.getMessage());
+                    logger.log(Level.SEVERE, e.getMessage());
                     eos = true;
                     continue;
                 }
@@ -294,12 +294,12 @@ class PlayFile extends Source implements Runnable {
                                         og.header_base, og.header, og.header_len,
                                         og.body_base, og.body, og.body_len);
                             } catch (Exception e) {
-                                try{
+                                try {
                                     c.close();
                                     removeListener(c);
                                     size--;
-                                }catch(Exception err) {
-                                    logger.log(Level.SEVERE,e.getMessage());
+                                } catch (Exception err) {
+                                    logger.log(Level.SEVERE, e.getMessage());
                                 }
                             }
                         }
@@ -329,11 +329,10 @@ class PlayFile extends Source implements Runnable {
                         try {
                             Thread.sleep(1);
                         } catch (Exception e) {
+                            logger.log(Level.SEVERE,e.getMessage());
                         }
 
                         status = "status13";
-
-//	    if(og.eos()!=0)eos=true;
 
                     }
                     status = "status14";
@@ -344,7 +343,7 @@ class PlayFile extends Source implements Runnable {
             try {
                 if (bitStream != null) bitStream.close();
             } catch (Exception e) {
-                logger.log(Level.SEVERE,e.getMessage());
+                logger.log(Level.SEVERE, e.getMessage());
             }
             bitStream = null;
             status = "status16";
@@ -354,7 +353,7 @@ class PlayFile extends Source implements Runnable {
         try {
             if (bitStream != null) bitStream.close();
         } catch (Exception e) {
-            logger.log(Level.SEVERE,e.getMessage());
+            logger.log(Level.SEVERE, e.getMessage());
         }
         bitStream = null;
         status = "status14";
@@ -378,7 +377,7 @@ class PlayFile extends Source implements Runnable {
             try {
                 if (bitStream != null) bitStream.close();
             } catch (Exception e) {
-                logger.log(Level.SEVERE,e.getMessage());
+                logger.log(Level.SEVERE, e.getMessage());
             }
             bitStream = null;
             me = null;
@@ -395,7 +394,7 @@ class PlayFile extends Source implements Runnable {
                 try {
                     c.close();
                 } catch (Exception e) {
-                    logger.log(Level.SEVERE,e.getMessage());
+                    logger.log(Level.SEVERE, e.getMessage());
                 }
             }
             listeners.removeAllElements();
