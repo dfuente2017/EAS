@@ -1,33 +1,58 @@
 
- com.jcraft.jogg.Page#serialno()II
-?D:/RepositorioGitHubDesktop/EAS-Sonar/com/jcraft/jogg/Page.javaS S("1*„
+"com.jcraft.jogg.Page#granulepos()JI
+?D:/RepositorioGitHubDesktop/EAS-Sonar/com/jcraft/jogg/Page.javaH H("1*£
+
 1I
-?D:/RepositorioGitHubDesktop/EAS-Sonar/com/jcraft/jogg/Page.javaT T(ç
+?D:/RepositorioGitHubDesktop/EAS-Sonar/com/jcraft/jogg/Page.javaI I(ç
 ä
 I
-?D:/RepositorioGitHubDesktop/EAS-Sonar/com/jcraft/jogg/Page.javaT T(
+?D:/RepositorioGitHubDesktop/EAS-Sonar/com/jcraft/jogg/Page.javaI I(
 %0byte[]"__id*)*'
 com.jcraft.jogg.Page"
 header_baseç
 ä
 I
-?D:/RepositorioGitHubDesktop/EAS-Sonar/com/jcraft/jogg/Page.javaU U(
+?D:/RepositorioGitHubDesktop/EAS-Sonar/com/jcraft/jogg/Page.javaJ J(
 %1byte[]"__id*)*'
 com.jcraft.jogg.Page"
 header_baseç
 ä
 I
-?D:/RepositorioGitHubDesktop/EAS-Sonar/com/jcraft/jogg/Page.javaV V(
+?D:/RepositorioGitHubDesktop/EAS-Sonar/com/jcraft/jogg/Page.javaK K(
 %2byte[]"__id*)*'
 com.jcraft.jogg.Page"
 header_baseç
 ä
 I
-?D:/RepositorioGitHubDesktop/EAS-Sonar/com/jcraft/jogg/Page.javaW W(
+?D:/RepositorioGitHubDesktop/EAS-Sonar/com/jcraft/jogg/Page.javaL L(
 %3byte[]"__id*)*'
+com.jcraft.jogg.Page"
+header_baseç
+ä
+I
+?D:/RepositorioGitHubDesktop/EAS-Sonar/com/jcraft/jogg/Page.javaM M(
+%4byte[]"__id*)*'
+com.jcraft.jogg.Page"
+header_baseç
+ä
+I
+?D:/RepositorioGitHubDesktop/EAS-Sonar/com/jcraft/jogg/Page.javaN N(
+%5byte[]"__id*)*'
+com.jcraft.jogg.Page"
+header_baseç
+ä
+I
+?D:/RepositorioGitHubDesktop/EAS-Sonar/com/jcraft/jogg/Page.javaO O(
+%6byte[]"__id*)*'
+com.jcraft.jogg.Page"
+header_baseç
+ä
+I
+?D:/RepositorioGitHubDesktop/EAS-Sonar/com/jcraft/jogg/Page.javaP P(
+%7byte[]"__id*)*'
 com.jcraft.jogg.Page"
 header_base"S
 I
-?D:/RepositorioGitHubDesktop/EAS-Sonar/com/jcraft/jogg/Page.javaT W(/
+?D:/RepositorioGitHubDesktop/EAS-Sonar/com/jcraft/jogg/Page.javaQ Q(
 ""B
 com.jcraft.jogg.Page

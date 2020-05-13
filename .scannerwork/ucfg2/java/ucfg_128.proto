@@ -1,9 +1,22 @@
 
-8com.jcraft.jroar.JRoar#getSources()Ljava/util/Hashtable;M
-AD:/RepositorioGitHubDesktop/EAS-Sonar/com/jcraft/jroar/JRoar.java÷ ÷(&"1*«
-1M
-AD:/RepositorioGitHubDesktop/EAS-Sonar/com/jcraft/jroar/JRoar.javaø ø("W
-M
-AD:/RepositorioGitHubDesktop/EAS-Sonar/com/jcraft/jroar/JRoar.javaø ø(
-""B"
-com.jcraft.jroar.JRoar
+4com.jcraft.jroar.Debug#ln(Ljava/lang/StringBuffer;)VK
+AD:/RepositorioGitHubDesktop/EAS-Sonar/com/jcraft/jroar/Debug.javaY Y("1*°
+1K
+AD:/RepositorioGitHubDesktop/EAS-Sonar/com/jcraft/jroar/Debug.javaZ Z(u
+s
+K
+AD:/RepositorioGitHubDesktop/EAS-Sonar/com/jcraft/jroar/Debug.javaZ Z(
+%0java.lang.String"__id*
+""Œ
+K
+AD:/RepositorioGitHubDesktop/EAS-Sonar/com/jcraft/jroar/Debug.javaZ Z(
+%1java.lang.StringBuffer"Ijava.lang.StringBuffer#append(Ljava/lang/String;)Ljava/lang/StringBuffer;*
+
+sbjava.lang.StringBuffer*
+
+%0java.lang.String2append(Ljava/lang/String;)"U
+K
+AD:/RepositorioGitHubDesktop/EAS-Sonar/com/jcraft/jroar/Debug.java[ [(
+"":
+sbjava.lang.StringBufferB
+com.jcraft.jroar.Debug

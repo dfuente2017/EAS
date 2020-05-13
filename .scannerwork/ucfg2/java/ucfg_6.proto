@@ -1,64 +1,61 @@
 
-Zcom.jcraft.jroar.Debug#wrap(Ljava/lang/StringBuffer;Ljava/lang/String;Ljava/lang/String;)VK
-AD:/RepositorioGitHubDesktop/EAS-Sonar/com/jcraft/jroar/Debug.javaO O("1*Á
-
-1K
-AD:/RepositorioGitHubDesktop/EAS-Sonar/com/jcraft/jroar/Debug.javaP P(î
-ë
-K
-AD:/RepositorioGitHubDesktop/EAS-Sonar/com/jcraft/jroar/Debug.javaP P(
-%0java.lang.String"__concat*
-<*
-
-tagjava.lang.Stringì
-ê
-K
-AD:/RepositorioGitHubDesktop/EAS-Sonar/com/jcraft/jroar/Debug.javaP P(
-%1java.lang.String"__concat*
-
-%0java.lang.String*
->ß
-§
-K
-AD:/RepositorioGitHubDesktop/EAS-Sonar/com/jcraft/jroar/Debug.javaP P(
-%2java.lang.String"__concat*
-
-%1java.lang.String*
-
-foojava.lang.Stringî
-ë
-K
-AD:/RepositorioGitHubDesktop/EAS-Sonar/com/jcraft/jroar/Debug.javaP P("
-%3java.lang.String"__concat*
-
-%2java.lang.String*
-</ß
-§
-K
-AD:/RepositorioGitHubDesktop/EAS-Sonar/com/jcraft/jroar/Debug.javaP P(&
-%4java.lang.String"__concat*
-
-%3java.lang.String*
-
-tagjava.lang.Stringì
-ê
-K
-AD:/RepositorioGitHubDesktop/EAS-Sonar/com/jcraft/jroar/Debug.javaP P(*
-%5java.lang.String"__concat*
-
-%4java.lang.String*
->èå
-K
-AD:/RepositorioGitHubDesktop/EAS-Sonar/com/jcraft/jroar/Debug.javaP P(+
-%6java.lang.StringBuffer"Ijava.lang.StringBuffer#append(Ljava/lang/String;)Ljava/lang/StringBuffer;*
+Fcom.jcraft.jroar.Pls#readline(Ljava/io/InputStream;)Ljava/lang/String;I
+?D:/RepositorioGitHubDesktop/EAS-Sonar/com/jcraft/jroar/Pls.java_ _( "12*¥
+3I
+?D:/RepositorioGitHubDesktop/EAS-Sonar/com/jcraft/jroar/Pls.javaf f("⁄◊
+I
+?D:/RepositorioGitHubDesktop/EAS-Sonar/com/jcraft/jroar/Pls.javaf f(5
+%3java.lang.StringBuffer"8java.lang.StringBuffer#append(C)Ljava/lang/StringBuffer;*
+
+rtnjava.lang.StringBuffer*
+""2	append(C)*
+10
+1*£
+6I
+?D:/RepositorioGitHubDesktop/EAS-Sonar/com/jcraft/jroar/Pls.javae e("S
+I
+?D:/RepositorioGitHubDesktop/EAS-Sonar/com/jcraft/jroar/Pls.javae e(!
+""*¸
+10I
+?D:/RepositorioGitHubDesktop/EAS-Sonar/com/jcraft/jroar/Pls.javac c(õò
+I
+?D:/RepositorioGitHubDesktop/EAS-Sonar/com/jcraft/jroar/Pls.javac c(	
+%2int"java.io.InputStream#read()I*
+
+isjava.io.InputStream2read()*
+3
+6
+10
+1*ã
+12I
+?D:/RepositorioGitHubDesktop/EAS-Sonar/com/jcraft/jroar/Pls.java` `('ÑÅ
+I
+?D:/RepositorioGitHubDesktop/EAS-Sonar/com/jcraft/jroar/Pls.java` `(%
+%0java.lang.StringBuffer"java.lang.StringBufferñ
+ì
+I
+?D:/RepositorioGitHubDesktop/EAS-Sonar/com/jcraft/jroar/Pls.java` `('
+%1" java.lang.StringBuffer#<init>()V*
 
-sbjava.lang.StringBuffer*
+%0java.lang.StringBufferì
+ê
+I
+?D:/RepositorioGitHubDesktop/EAS-Sonar/com/jcraft/jroar/Pls.java` `((
+rtnjava.lang.StringBuffer"__id*
+
+%0java.lang.StringBuffer*
+10*Ä
+1I
+?D:/RepositorioGitHubDesktop/EAS-Sonar/com/jcraft/jroar/Pls.javah h(»≈
+I
+?D:/RepositorioGitHubDesktop/EAS-Sonar/com/jcraft/jroar/Pls.javah h(
+%4java.lang.String"3java.lang.StringBuffer#toString()Ljava/lang/String;*
+
+rtnjava.lang.StringBuffer2
+toString()"e
+I
+?D:/RepositorioGitHubDesktop/EAS-Sonar/com/jcraft/jroar/Pls.javah h(
 
-%5java.lang.String2append(Ljava/lang/String;)"U
-K
-AD:/RepositorioGitHubDesktop/EAS-Sonar/com/jcraft/jroar/Debug.javaQ Q(
-"":
-sbjava.lang.StringBuffer:
-tagjava.lang.String:
-foojava.lang.StringB
-com.jcraft.jroar.Debug
+%4java.lang.String:
+isjava.io.InputStreamB"
+com.jcraft.jroar.Pls

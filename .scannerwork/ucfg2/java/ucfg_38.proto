@@ -1,165 +1,15 @@
 
-Acom.jcraft.jroar.Pls#getURL(Ljava/lang/String;)Ljava/lang/String;I
-?D:/RepositorioGitHubDesktop/EAS-Sonar/com/jcraft/jroar/Pls.java@ @("29*ã
-14I
-?D:/RepositorioGitHubDesktop/EAS-Sonar/com/jcraft/jroar/Pls.javaP
- P( ˆ
+"com.jcraft.jogg.SyncState#clear()IN
+DD:/RepositorioGitHubDesktop/EAS-Sonar/com/jcraft/jogg/SyncState.java7 7("1*¸
+1N
+DD:/RepositorioGitHubDesktop/EAS-Sonar/com/jcraft/jogg/SyncState.java8	 8(ˆ
 …
-I
-?D:/RepositorioGitHubDesktop/EAS-Sonar/com/jcraft/jroar/Pls.javaP
- P( 
-linejava.lang.String"__id*
-
-%7java.lang.String*
-3
-11*Ê
-25I
-?D:/RepositorioGitHubDesktop/EAS-Sonar/com/jcraft/jroar/Pls.javaE E(0”
-‘
-I
-?D:/RepositorioGitHubDesktop/EAS-Sonar/com/jcraft/jroar/Pls.javaE E(0
-urlcjava.net.URLConnection"__id*
-
-%3java.net.URLConnectionÛØ
-I
-?D:/RepositorioGitHubDesktop/EAS-Sonar/com/jcraft/jroar/Pls.javaF F(%
-%4java.io.InputStream"<java.net.URLConnection#getInputStream()Ljava/io/InputStream;* 
-
-urlcjava.net.URLConnection2getInputStream()*
-22*¤
-26I
-?D:/RepositorioGitHubDesktop/EAS-Sonar/com/jcraft/jroar/Pls.javaD D(~
-|
-I
-?D:/RepositorioGitHubDesktop/EAS-Sonar/com/jcraft/jroar/Pls.javaD D(
-urljava.net.URL"__id*
-
-%1java.net.URLÌÉ
-I
-?D:/RepositorioGitHubDesktop/EAS-Sonar/com/jcraft/jroar/Pls.javaE E(/
-%3java.net.URLConnection"5java.net.URL#openConnection()Ljava/net/URLConnection;*
-
-urljava.net.URL2openConnection()*
-25*Â
-16I
-?D:/RepositorioGitHubDesktop/EAS-Sonar/com/jcraft/jroar/Pls.javaP P(ê
-ç
-I
-?D:/RepositorioGitHubDesktop/EAS-Sonar/com/jcraft/jroar/Pls.javaP P( 
-%7java.lang.String"Fcom.jcraft.jroar.Pls#readline(Ljava/io/InputStream;)Ljava/lang/String;*"
-com.jcraft.jroar.Pls* 
-
-pstreamjava.io.InputStream*
-14*ø
-27I
-?D:/RepositorioGitHubDesktop/EAS-Sonar/com/jcraft/jroar/Pls.javaD D(om
-I
-?D:/RepositorioGitHubDesktop/EAS-Sonar/com/jcraft/jroar/Pls.javaD D(
-%1java.net.URL"java.net.URL¯
-¬
-I
-?D:/RepositorioGitHubDesktop/EAS-Sonar/com/jcraft/jroar/Pls.javaD D(
-%2"(java.net.URL#<init>(Ljava/lang/String;)V*
-
-%1java.net.URL*
-
-plsjava.lang.String*
-26*´
-29I
-?D:/RepositorioGitHubDesktop/EAS-Sonar/com/jcraft/jroar/Pls.javaA A({
-y
-I
-?D:/RepositorioGitHubDesktop/EAS-Sonar/com/jcraft/jroar/Pls.javaA A(
-pstreamjava.io.InputStream"__id*
-""×Ô
-I
-?D:/RepositorioGitHubDesktop/EAS-Sonar/com/jcraft/jroar/Pls.javaB B( 
-%0boolean"0java.lang.String#startsWith(Ljava/lang/String;)Z*
-
-plsjava.lang.String*	
-http://2startsWith(Ljava/lang/String;)*
-27
-19
-20*Ï
-19I
-?D:/RepositorioGitHubDesktop/EAS-Sonar/com/jcraft/jroar/Pls.javaN N(u
-s
-I
-?D:/RepositorioGitHubDesktop/EAS-Sonar/com/jcraft/jroar/Pls.javaN N(
-linejava.lang.String"__id*
-""*
-3
-16*·
-1I
-?D:/RepositorioGitHubDesktop/EAS-Sonar/com/jcraft/jroar/Pls.java] ]("g
-I
-?D:/RepositorioGitHubDesktop/EAS-Sonar/com/jcraft/jroar/Pls.java] ](
-
-linejava.lang.String*ú
-3I
-?D:/RepositorioGitHubDesktop/EAS-Sonar/com/jcraft/jroar/Pls.java\ \(¤¡
-I
-?D:/RepositorioGitHubDesktop/EAS-Sonar/com/jcraft/jroar/Pls.java\ \(
-%11void"java.io.InputStream#close()V* 
-
-pstreamjava.io.InputStream2close()*
-1*´
-5I
-?D:/RepositorioGitHubDesktop/EAS-Sonar/com/jcraft/jroar/Pls.javaX X(ÒÏ
-I
-?D:/RepositorioGitHubDesktop/EAS-Sonar/com/jcraft/jroar/Pls.javaX X(!
-%10java.lang.String"0java.lang.String#substring(II)Ljava/lang/String;*
-
-linejava.lang.String*2*
-""2substring(II)‰
-†
-I
-?D:/RepositorioGitHubDesktop/EAS-Sonar/com/jcraft/jroar/Pls.javaX X(!
-linejava.lang.String"__id*
-
-%10java.lang.String*
-3*¤
-20I
-?D:/RepositorioGitHubDesktop/EAS-Sonar/com/jcraft/jroar/Pls.javaM M(!"S
-I
-?D:/RepositorioGitHubDesktop/EAS-Sonar/com/jcraft/jroar/Pls.javaM M("
-""*î
-10I
-?D:/RepositorioGitHubDesktop/EAS-Sonar/com/jcraft/jroar/Pls.javaS S(£ 
-I
-?D:/RepositorioGitHubDesktop/EAS-Sonar/com/jcraft/jroar/Pls.javaS S("
-%9byte[]"java.lang.String#getBytes()[B*
-
-linejava.lang.String2
-getBytes()r
-p
-I
-?D:/RepositorioGitHubDesktop/EAS-Sonar/com/jcraft/jroar/Pls.javaS S(#
-foobyte[]"__id*
-
-%9byte[]*
-5*í
-22I
-?D:/RepositorioGitHubDesktop/EAS-Sonar/com/jcraft/jroar/Pls.javaF F(%‘
-Ž
-I
-?D:/RepositorioGitHubDesktop/EAS-Sonar/com/jcraft/jroar/Pls.javaF F(%
-pstreamjava.io.InputStream"__id*
-
-%4java.io.InputStream*
-19
-20*¶
-11I
-?D:/RepositorioGitHubDesktop/EAS-Sonar/com/jcraft/jroar/Pls.javaR	 R(×Ô
-I
-?D:/RepositorioGitHubDesktop/EAS-Sonar/com/jcraft/jroar/Pls.javaR	 R("
-%8boolean"0java.lang.String#startsWith(Ljava/lang/String;)Z*
-
-linejava.lang.String*
-
-File1=2startsWith(Ljava/lang/String;)*
-3
-16
-10:
-plsjava.lang.StringB"
-com.jcraft.jroar.Pls
+N
+DD:/RepositorioGitHubDesktop/EAS-Sonar/com/jcraft/jogg/SyncState.java8 8(%
+com.jcraft.jogg.SyncState"
+data"__id*
+"""X
+N
+DD:/RepositorioGitHubDesktop/EAS-Sonar/com/jcraft/jogg/SyncState.java9 9(
+""B
+com.jcraft.jogg.SyncState

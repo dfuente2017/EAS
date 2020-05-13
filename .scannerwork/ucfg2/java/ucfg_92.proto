@@ -1,191 +1,9 @@
 
-Bcom.jcraft.jroar.Page#decode(Ljava/lang/String;)Ljava/lang/String;J
-@D:/RepositorioGitHubDesktop/EAS-Sonar/com/jcraft/jroar/Page.java,	 ,("30*Œ
-15J
-@D:/RepositorioGitHubDesktop/EAS-Sonar/com/jcraft/jroar/Page.java6* 6(-m
-k
-J
-@D:/RepositorioGitHubDesktop/EAS-Sonar/com/jcraft/jroar/Page.java6* 6(-	
-%4int"__id*
-
-
-%10int*
-5
-6
-9
-12*Õ
-16J
-@D:/RepositorioGitHubDesktop/EAS-Sonar/com/jcraft/jroar/Page.java6 6( l
-j
-J
-@D:/RepositorioGitHubDesktop/EAS-Sonar/com/jcraft/jroar/Page.java6 6('	
-%4int"__id*
-	
-%9int*
-5
-6
-9
-12*…
-27J
-@D:/RepositorioGitHubDesktop/EAS-Sonar/com/jcraft/jroar/Page.java1 1(⁄◊
-J
-@D:/RepositorioGitHubDesktop/EAS-Sonar/com/jcraft/jroar/Page.java1 1(+
-%3java.lang.StringBuffer"8java.lang.StringBuffer#append(C)Ljava/lang/StringBuffer;*
-
-sbjava.lang.StringBuffer*
-""2	append(C)*
-3
-15
-27
-16
-19
-22
-1*Õ
-19J
-@D:/RepositorioGitHubDesktop/EAS-Sonar/com/jcraft/jroar/Page.java5 5( l
-j
-J
-@D:/RepositorioGitHubDesktop/EAS-Sonar/com/jcraft/jroar/Page.java5 5('	
-%4int"__id*
-	
-%7int*
-5
-6
-9
-12*Ñ
-1J
-@D:/RepositorioGitHubDesktop/EAS-Sonar/com/jcraft/jroar/Page.javaC C(…∆
-J
-@D:/RepositorioGitHubDesktop/EAS-Sonar/com/jcraft/jroar/Page.javaC C(
-%20java.lang.String"3java.lang.StringBuffer#toString()Ljava/lang/String;*
-
-sbjava.lang.StringBuffer2
-toString()"g
-J
-@D:/RepositorioGitHubDesktop/EAS-Sonar/com/jcraft/jroar/Page.javaC C(
-
-%20java.lang.String*…
-3J
-@D:/RepositorioGitHubDesktop/EAS-Sonar/com/jcraft/jroar/Page.javaA A(€ÿ
-J
-@D:/RepositorioGitHubDesktop/EAS-Sonar/com/jcraft/jroar/Page.javaA A(
-%19java.lang.StringBuffer"8java.lang.StringBuffer#append(C)Ljava/lang/StringBuffer;*
-
-sbjava.lang.StringBuffer*
-""2	append(C)*
-3
-15
-27
-16
-19
-22
-1*…
-4J
-@D:/RepositorioGitHubDesktop/EAS-Sonar/com/jcraft/jroar/Page.java9 ;(-€ÿ
-J
-@D:/RepositorioGitHubDesktop/EAS-Sonar/com/jcraft/jroar/Page.java= =(
-%18java.lang.StringBuffer"8java.lang.StringBuffer#append(C)Ljava/lang/StringBuffer;*
-
-sbjava.lang.StringBuffer*
-""2	append(C)*
-3
-15
-27
-16
-19
-22
-1*ƒ
-5J
-@D:/RepositorioGitHubDesktop/EAS-Sonar/com/jcraft/jroar/Page.java;* ;(-n
-l
-J
-@D:/RepositorioGitHubDesktop/EAS-Sonar/com/jcraft/jroar/Page.java;* ;(-
-
-%11int"__id*
-
-
-%17int*
-4*ƒ
-6J
-@D:/RepositorioGitHubDesktop/EAS-Sonar/com/jcraft/jroar/Page.java; ;( n
-l
-J
-@D:/RepositorioGitHubDesktop/EAS-Sonar/com/jcraft/jroar/Page.java; ;('
-
-%11int"__id*
-
-
-%16int*
-4*ƒ
-9J
-@D:/RepositorioGitHubDesktop/EAS-Sonar/com/jcraft/jroar/Page.java: :( n
-l
-J
-@D:/RepositorioGitHubDesktop/EAS-Sonar/com/jcraft/jroar/Page.java: :('
-
-%11int"__id*
-
-
-%14int*
-4*ø
-30J
-@D:/RepositorioGitHubDesktop/EAS-Sonar/com/jcraft/jroar/Page.java. .(£†
-J
-@D:/RepositorioGitHubDesktop/EAS-Sonar/com/jcraft/jroar/Page.java. .(
-%0byte[]"java.lang.String#getBytes()[B*
-
-argjava.lang.String2
-getBytes()s
-q
-J
-@D:/RepositorioGitHubDesktop/EAS-Sonar/com/jcraft/jroar/Page.java. .(
-foobyte[]"__id*
-
-%0byte[]ÖÇ
-J
-@D:/RepositorioGitHubDesktop/EAS-Sonar/com/jcraft/jroar/Page.java/ /($
-%1java.lang.StringBuffer"java.lang.StringBufferó
-î
-J
-@D:/RepositorioGitHubDesktop/EAS-Sonar/com/jcraft/jroar/Page.java/ /(&
-%2" java.lang.StringBuffer#<init>()V*
-
-%1java.lang.StringBufferì
-ê
-J
-@D:/RepositorioGitHubDesktop/EAS-Sonar/com/jcraft/jroar/Page.java/ /('
-sbjava.lang.StringBuffer"__id*
-
-%1java.lang.StringBuffer*
-3
-15
-27
-16
-19
-22
-1*Õ
-22J
-@D:/RepositorioGitHubDesktop/EAS-Sonar/com/jcraft/jroar/Page.java4 4( l
-j
-J
-@D:/RepositorioGitHubDesktop/EAS-Sonar/com/jcraft/jroar/Page.java4 4($	
-%4int"__id*
-	
-%5int*
-5
-6
-9
-12*≈
-12J
-@D:/RepositorioGitHubDesktop/EAS-Sonar/com/jcraft/jroar/Page.java9 9( n
-l
-J
-@D:/RepositorioGitHubDesktop/EAS-Sonar/com/jcraft/jroar/Page.java9 9($
-
-%11int"__id*
-
-
-%12int*
-4:
-argjava.lang.StringB
-com.jcraft.jroar.Page
+)com.jcraft.jroar.Source#getConnections()IL
+BD:/RepositorioGitHubDesktop/EAS-Sonar/com/jcraft/jroar/Source.java] ]("1*©
+1L
+BD:/RepositorioGitHubDesktop/EAS-Sonar/com/jcraft/jroar/Source.java^ ^("V
+L
+BD:/RepositorioGitHubDesktop/EAS-Sonar/com/jcraft/jroar/Source.java^ ^(
+""B
+com.jcraft.jroar.Source
