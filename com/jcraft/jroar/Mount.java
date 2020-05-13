@@ -32,7 +32,7 @@ class Mount extends Page {
         register("/mount", Mount.class.getName());
     }
 
-    public void kick(MySocket ms, Hashtable vars, Vector h) throws IOException {
+    public void kick(MySocket ms, Hashtable vars, List h) throws IOException {
 
         String mountpoint = (String) vars.get("mountpoint");
         String source = (String) vars.get("source");

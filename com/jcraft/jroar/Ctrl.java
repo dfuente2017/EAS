@@ -36,7 +36,7 @@ class Ctrl extends Page {
     private static final int REFRESH = 60;
     private static int count = 0;
 
-    public void kick(MySocket s, Hashtable vars, Vector httpheader) throws IOException {
+    public void kick(MySocket s, Hashtable vars, List httpheader) throws IOException {
         count++;
         s.println("HTTP/1.0 200 OK");
         s.println("Content-Type: text/html");

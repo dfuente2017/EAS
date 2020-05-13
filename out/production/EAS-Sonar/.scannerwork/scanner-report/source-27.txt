@@ -51,14 +51,14 @@ class PlayFile extends Source implements Runnable {
 
     PlayFile(String mountpoint, String[] files) {
         super(mountpoint);
-        HttpServer.source_connections++;
+        HttpServer.sourceConnections++;
         this.source = "playlist";
         this.files = files;
     }
 
     PlayFile(String mountpoint, String file) {
         super(mountpoint);
-        HttpServer.source_connections++;
+        HttpServer.sourceConnections++;
         this.source = "playlist";
         if (file.startsWith(HTTP) && file.endsWith(".m3u")) {
             constructorm3uFiles();
@@ -81,7 +81,7 @@ class PlayFile extends Source implements Runnable {
             } catch (Exception e) {
                 logger.log(Level.SEVERE, e.getMessage());
                 drop();
-                HttpServer.source_connections--;
+                HttpServer.sourceConnections--;
             }
         }
     }
@@ -96,7 +96,7 @@ class PlayFile extends Source implements Runnable {
             this.source = file;
         } else {
             drop();
-            HttpServer.source_connections--;
+            HttpServer.sourceConnections--;
         }
     }
 

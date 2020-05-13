@@ -1,25 +1,25 @@
 
-%com.jcraft.jroar.MySocket#readByte()IN
-DD:/RepositorioGitHubDesktop/EAS-Sonar/com/jcraft/jroar/MySocket.java= =("3*­
+6com.jcraft.jroar.MySocket#readLine()Ljava/lang/String;N
+DD:/RepositorioGitHubDesktop/EAS-Sonar/com/jcraft/jroar/MySocket.javaB B("3*¿
 2N
-DD:/RepositorioGitHubDesktop/EAS-Sonar/com/jcraft/jroar/MySocket.java>	 >(*"X
+DD:/RepositorioGitHubDesktop/EAS-Sonar/com/jcraft/jroar/MySocket.javaC	 C(,"j
 N
-DD:/RepositorioGitHubDesktop/EAS-Sonar/com/jcraft/jroar/MySocket.java>+ >(:
-""*»
+DD:/RepositorioGitHubDesktop/EAS-Sonar/com/jcraft/jroar/MySocket.javaC	 C(,
+
+%1java.lang.String*Ø
 3N
-DD:/RepositorioGitHubDesktop/EAS-Sonar/com/jcraft/jroar/MySocket.java> >(¬
+DD:/RepositorioGitHubDesktop/EAS-Sonar/com/jcraft/jroar/MySocket.javaC C(¬
 ©
 N
-DD:/RepositorioGitHubDesktop/EAS-Sonar/com/jcraft/jroar/MySocket.java> >(
+DD:/RepositorioGitHubDesktop/EAS-Sonar/com/jcraft/jroar/MySocket.javaC C(
 %0java.io.DataInputStream"__id*2*0
 com.jcraft.jroar.MySocket"
-dataInputStream±®
+dataInputStreamÎË
 N
-DD:/RepositorioGitHubDesktop/EAS-Sonar/com/jcraft/jroar/MySocket.java> >()
-
-%1byte"#java.io.DataInputStream#readByte()B*
+DD:/RepositorioGitHubDesktop/EAS-Sonar/com/jcraft/jroar/MySocket.javaC C(*
+%1java.lang.String"4java.io.DataInputStream#readLine()Ljava/lang/String;*
 
 %0java.io.DataInputStream2
-readByte()*
+readLine()*
 2B
 com.jcraft.jroar.MySocket

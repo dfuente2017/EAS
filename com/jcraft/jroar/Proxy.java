@@ -50,7 +50,7 @@ class Proxy extends Source implements Runnable{
     super(mountpoint);
     this.source=source;
 
-HttpServer.source_connections++;
+HttpServer.sourceConnections++;
 
   }
 
