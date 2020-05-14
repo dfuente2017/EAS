@@ -1607,13 +1607,14 @@ $checkNumericZone(Ljava/lang/String;):java.net.InetAddress#checkNumericZone(Lja
 readResolve()4java.net.InetAddress#readResolve()Ljava/lang/Object;þ
 !com.jcraft.jroar.HttpServer$Spawnjava.lang.Thread1
 run()(com.jcraft.jroar.HttpServer$Spawn#run()V“
-6<init>(Lcom/jcraft/jroar/HttpServer;Ljava/net/Socket;)Ycom.jcraft.jroar.HttpServer$Spawn#<init>(Lcom/jcraft/jroar/HttpServer;Ljava/net/Socket;)V–
+6<init>(Lcom/jcraft/jroar/HttpServer;Ljava/net/Socket;)Ycom.jcraft.jroar.HttpServer$Spawn#<init>(Lcom/jcraft/jroar/HttpServer;Ljava/net/Socket;)VÐ
 com.jcraft.jroar.Dispatchjava.lang.Objectu
 +procGET(Ljava/lang/String;Ljava/util/List;)Fcom.jcraft.jroar.Dispatch#procGET(Ljava/lang/String;Ljava/util/List;)V+
 doit()!com.jcraft.jroar.Dispatch#doit()Vw
-,procPOST(Ljava/lang/String;Ljava/util/List;)Gcom.jcraft.jroar.Dispatch#procPOST(Ljava/lang/String;Ljava/util/List;)VQ
-<init>(Ljava/net/Socket;)4com.jcraft.jroar.Dispatch#<init>(Ljava/net/Socket;)Vw
-,procHEAD(Ljava/lang/String;Ljava/util/List;)Gcom.jcraft.jroar.Dispatch#procHEAD(Ljava/lang/String;Ljava/util/List;)V…
+,procPOST(Ljava/lang/String;Ljava/util/List;)Gcom.jcraft.jroar.Dispatch#procPOST(Ljava/lang/String;Ljava/util/List;)VW
+procHEAD(Ljava/lang/String;)7com.jcraft.jroar.Dispatch#procHEAD(Ljava/lang/String;)VQ
+<init>(Ljava/net/Socket;)4com.jcraft.jroar.Dispatch#<init>(Ljava/net/Socket;)VX
+getCgi(Ljava/lang/Object;):com.jcraft.jroar.Dispatch#getCgi(Ljava/lang/Object;)LPage;…
 java.util.Datejava.lang.Cloneablejava.lang.Comparablejava.lang.Objectjava.io.Serializable<
 toInstant()-java.util.Date#toInstant()Ljava/time/Instant;H
 equals(Ljava/lang/Object;)*java.util.Date#equals(Ljava/lang/Object;)ZY

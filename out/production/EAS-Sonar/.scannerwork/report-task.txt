@@ -3,5 +3,5 @@ projectKey=dfuente2017_EAS
 serverUrl=https://sonarcloud.io
 serverVersion=8.0.0.7864
 dashboardUrl=https://sonarcloud.io/dashboard?id=dfuente2017_EAS
-ceTaskId=AXIPQ1FnvdVzpU2Waqrl
-ceTaskUrl=https://sonarcloud.io/api/ce/task?id=AXIPQ1FnvdVzpU2Waqrl
+ceTaskId=AXISTTTZ9t2dtxtuNR4p
+ceTaskUrl=https://sonarcloud.io/api/ce/task?id=AXISTTTZ9t2dtxtuNR4p

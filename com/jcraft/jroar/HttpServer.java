@@ -23,6 +23,7 @@
 package com.jcraft.jroar;
 
 import java.io.*;
+import java.lang.reflect.InvocationTargetException;
 import java.net.*;
 import java.util.*;
 import java.util.logging.Level;
@@ -56,7 +57,7 @@ class HttpServer extends Thread {
         try {
             serverSocket = new ServerSocket(port);
         } catch (IOException e) {
-            logger.log(Level.SEVERE,e.getMessage());
+            logger.log(Level.SEVERE, e.getMessage());
             System.exit(1);
         }
         try {
@@ -65,7 +66,7 @@ class HttpServer extends Thread {
             else
                 myURL = "http://" + myaddress + ":" + port;
         } catch (Exception e) {
-            logger.log(Level.SEVERE,e.getMessage());
+            logger.log(Level.SEVERE, e.getMessage());
         }
     }
 
@@ -75,7 +76,7 @@ class HttpServer extends Thread {
             try {
                 socket = serverSocket.accept();
             } catch (IOException e) {
-                logger.log(Level.SEVERE,"accept error");
+                logger.log(Level.SEVERE, "accept error");
                 System.exit(1);
             }
             connections++;
@@ -96,7 +97,7 @@ class HttpServer extends Thread {
             try {
                 (new Dispatch(socket)).doit();
             } catch (Exception e) {
-                logger.log(Level.SEVERE,e.getMessage());
+                logger.log(Level.SEVERE, e.getMessage());
             }
         }
     }
@@ -126,6 +127,18 @@ class Dispatch {
         return v;
     }
 
+    private Page getCgi(Object o) throws NoSuchMethodException, IllegalAccessException, InvocationTargetException, InstantiationException, ClassNotFoundException {
+        Page cgi = null;
+        if (o instanceof String) {
+            String className = (String) o;
+            Class<Page> classObject = (Class<Page>) Class.forName(className);
+            cgi = classObject.getDeclaredConstructor().newInstance();
+        } else if (o instanceof Page) {
+            cgi = (Page) o;
+        }
+        return cgi;
+    }
+
     private void procPOST(String string, List<String> httpHeader) throws IOException {
         String foo;
         int len = 0;
@@ -147,14 +160,9 @@ class Dispatch {
         try {
             Object o = Page.map(file);
             if (o != null) {
-                Page cgi = null;
-                if (o instanceof String) {
-                    String className = (String) o;
-                    Class classObject = Class.forName(className);
-                    cgi = (Page) classObject.getDeclaredConstructor().newInstance();
-                } else if (o instanceof Page) {
-                    cgi = (Page) o;
-                }
+
+                Page cgi = getCgi(o);
+
                 if (cgi != null) {
                     cgi.kick(mySocket, cgi.getVars(mySocket, len), httpHeader);
                     mySocket.flush();
@@ -163,9 +171,40 @@ class Dispatch {
                 }
             }
         } catch (Exception e) {
-            logger.log(Level.SEVERE,e.getMessage());
+            logger.log(Level.SEVERE, e.getMessage());
         }
         Page.unknown(mySocket, file);
+    }
+
+    private boolean isReject(Source source, List<String> httpHeader){
+        boolean reject = false;
+        if (source.getLimit() != 0 &&
+                source.getLimit() < source.getListeners()) {
+            reject = true;
+        }
+        if (!reject && source.for_relay_only) {
+            reject = true;
+            for (int i = 0; i < httpHeader.size(); i++) {
+                String foo = httpHeader.get(i);
+                if (foo.startsWith("jroar-proxy: ")) {
+                    reject = false;
+                    break;
+                }
+            }
+        }
+        return reject;
+    }
+
+    private void executeSource(Source source){
+        if (source instanceof Proxy) {
+            ((Proxy) source).kick();
+        }
+        if (source instanceof PlayFile) {
+            ((PlayFile) source).kick();
+        }
+        if (source.mountpoint != null) {
+            HttpServer.clientConnections++;
+        }
     }
 
     private void procGET(String string, List<String> httpHeader) throws IOException {
@@ -185,21 +224,7 @@ class Dispatch {
 
         Source source = Source.getSource(fileAux);
         if (source != null) {
-            boolean reject = false;
-            if (source.getLimit() != 0 &&
-                    source.getLimit() < source.getListeners()) {
-                reject = true;
-            }
-            if (!reject && source.for_relay_only) {
-                reject = true;
-                for (int i = 0; i < httpHeader.size(); i++) {
-                    String foo = (String) httpHeader.get(i);
-                    if (foo.startsWith("jroar-proxy: ")) {
-                        reject = false;
-                        break;
-                    }
-                }
-            }
+            boolean reject = isReject(source, httpHeader);
 
             if (reject) {
                 Page.unknown(mySocket, fileAux);
@@ -207,15 +232,9 @@ class Dispatch {
             }
 
             source.addListener(new HttpClient(mySocket, httpHeader, fileAux));
-            if (source instanceof Proxy) {
-                ((Proxy) source).kick();
-            }
-            if (source instanceof PlayFile) {
-                ((PlayFile) source).kick();
-            }
-            if (source.mountpoint != null) {
-                HttpServer.clientConnections++;
-            }
+
+            executeSource(source);
+
             return;
         }
 
@@ -224,14 +243,9 @@ class Dispatch {
         try {
             Object o = Page.map(fileAux);
             if (o != null) {
-                Page cgi = null;
-                if (o instanceof String) {
-                    String className = (String) o;
-                    Class classObject = Class.forName(className);
-                    cgi = (Page) classObject.getDeclaredConstructor().newInstance();
-                } else if (o instanceof Page) {
-                    cgi = (Page) o;
-                }
+
+                Page cgi = getCgi(o);
+
                 if (cgi != null) {
                     cgi.kick(mySocket, cgi.getVars((file.indexOf('?') != -1) ? file.substring(file.indexOf('?') + 1) : null), httpHeader);
                     HttpServer.clientConnections++;
@@ -239,7 +253,7 @@ class Dispatch {
                 }
             }
         } catch (Exception e) {
-            logger.log(Level.SEVERE,e.getMessage());
+            logger.log(Level.SEVERE, e.getMessage());
         }
 
         if (fileAux.endsWith(".pls")) {
@@ -257,7 +271,7 @@ class Dispatch {
         Page.unknown(mySocket, fileAux);
     }
 
-    private void procHEAD(String string, List<String> httpHeader) throws IOException {
+    private void procHEAD(String string) throws IOException {
 
         String file;
 
@@ -277,13 +291,11 @@ class Dispatch {
             if (fileAux.indexOf('?') != -1) fileAux = fileAux.substring(0, fileAux.indexOf('?'));
 
             Object o = Page.map(fileAux);
-            if (o != null) {
-                exist = true;
-            } else if (fileAux.endsWith(".pls")) {
-                exist = true;
-            } else if (fileAux.endsWith(".m3u")) {
+
+            if ((o != null) || (fileAux.endsWith(".pls")) || (fileAux.endsWith(".m3u"))) {
                 exist = true;
             }
+
             file = fileAux;
         }
 
@@ -320,11 +332,11 @@ class Dispatch {
             }
 
             if (bar.equalsIgnoreCase("HEAD")) {
-                procHEAD(foo, v);
+                procHEAD(foo);
             }
 
         } catch (Exception e) {
-            logger.log(Level.SEVERE,e.getMessage());
+            logger.log(Level.SEVERE, e.getMessage());
         }
     }
 }

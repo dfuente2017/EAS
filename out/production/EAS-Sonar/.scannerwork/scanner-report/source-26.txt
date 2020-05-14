@@ -102,7 +102,7 @@ public abstract class Page{
     mysocket.close();
   }
 
-  abstract void kick(MySocket mysocket, Hashtable ht, Vector v) throws IOException;
+  abstract void kick(MySocket mysocket, Hashtable ht, List v) throws IOException;
 
   Hashtable getVars(String arg){
 

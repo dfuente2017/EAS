@@ -1,3 +1,3 @@
 »
-±Bytecode of dependencies was not provided for analysis of source files, you might end up with less precise results. Bytecode can be provided using sonar.java.libraries property.Îû‹ú .ƒ
-zJavaScript and/or TypeScript rules were not executed. Error when running: 'node -v'. Is Node.js available during analysis?Èªú .
+±Bytecode of dependencies was not provided for analysis of source files, you might end up with less precise results. Bytecode can be provided using sonar.java.libraries property.½Â³’¡.ƒ
+zJavaScript and/or TypeScript rules were not executed. Error when running: 'node -v'. Is Node.js available during analysis?Æ€µ’¡.

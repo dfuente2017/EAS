@@ -23,6 +23,7 @@
 package com.jcraft.jroar;
 
 import java.io.*;
+import java.lang.reflect.InvocationTargetException;
 import java.net.*;
 import java.util.*;
 import java.util.logging.Level;
@@ -56,7 +57,7 @@ class HttpServer extends Thread {
         try {
             serverSocket = new ServerSocket(port);
         } catch (IOException e) {
-            logger.log(Level.SEVERE,e.getMessage());
+            logger.log(Level.SEVERE, e.getMessage());
             System.exit(1);
         }
         try {
@@ -65,7 +66,7 @@ class HttpServer extends Thread {
             else
                 myURL = "http://" + myaddress + ":" + port;
         } catch (Exception e) {
-            logger.log(Level.SEVERE,e.getMessage());
+            logger.log(Level.SEVERE, e.getMessage());
         }
     }
 
@@ -75,7 +76,7 @@ class HttpServer extends Thread {
             try {
                 socket = serverSocket.accept();
             } catch (IOException e) {
-                logger.log(Level.SEVERE,"accept error");
+                logger.log(Level.SEVERE, "accept error");
                 System.exit(1);
             }
             connections++;
@@ -96,7 +97,7 @@ class HttpServer extends Thread {
             try {
                 (new Dispatch(socket)).doit();
             } catch (Exception e) {
-                logger.log(Level.SEVERE,e.getMessage());
+                logger.log(Level.SEVERE, e.getMessage());
             }
         }
     }
@@ -112,38 +113,8 @@ class Dispatch {
         mySocket = new MySocket(s);
     }
 
-    private void Response(String file) throws IOException {
-        FileInputStream fileInputStream = null;
-        BufferedInputStream bufferedInputStream = null;
-        DataInputStream dataInputStream = null;
-
-        try {
-            fileInputStream = new FileInputStream(file);
-            bufferedInputStream = new BufferedInputStream(fileInputStream);
-            dataInputStream = new DataInputStream(bufferedInputStream);
-        } catch (IOException e) {
-            return;
-        }
-
-        try {
-            int c;
-            while (true) {
-                c = dataInputStream.readByte();
-                mySocket.print((char) c);
-            }
-        } catch (IOException e) {
-        }
-
-        try {
-            dataInputStream.close();
-        } catch (IOException e) {
-        }
-        mySocket.flush();
-        mySocket.close();
-    }
-
-    private Vector getHttpHeader(MySocket ms) throws IOException {
-        Vector v = new Vector();
+    private List<String> getHttpHeader(MySocket ms) throws IOException {
+        List<String> v = Collections.synchronizedList(new ArrayList<String>());
         String foo = null;
         while (true) {
             foo = ms.readLine();
@@ -151,20 +122,32 @@ class Dispatch {
                 break;
             }
             System.out.println(" " + foo);
-            v.addElement(foo);
+            v.add(foo);
         }
         return v;
     }
 
-    private void procPOST(String string, Vector httpheader) throws IOException {
+    private Page getCgi(Object o) throws NoSuchMethodException, IllegalAccessException, InvocationTargetException, InstantiationException, ClassNotFoundException {
+        Page cgi = null;
+        if (o instanceof String) {
+            String className = (String) o;
+            Class<Page> classObject = (Class<Page>) Class.forName(className);
+            cgi = classObject.getDeclaredConstructor().newInstance();
+        } else if (o instanceof Page) {
+            cgi = (Page) o;
+        }
+        return cgi;
+    }
+
+    private void procPOST(String string, List<String> httpHeader) throws IOException {
         String foo;
         int len = 0;
         String file = string.substring(string.indexOf(' ') + 1);
         if (file.indexOf(' ') != -1)
             file = file.substring(0, file.indexOf(' '));
 
-        for (int i = 0; i < httpheader.size(); i++) {
-            foo = (String) httpheader.elementAt(i);
+        for (int i = 0; i < httpHeader.size(); i++) {
+            foo = httpHeader.get(i);
             if (foo.startsWith("Content-Length:") ||
                     foo.startsWith("Content-length:")  // hmm... for Opera, lynx
             ) {
@@ -177,28 +160,42 @@ class Dispatch {
         try {
             Object o = Page.map(file);
             if (o != null) {
-                Page cgi = null;
-                if (o instanceof String) {
-                    String className = (String) o;
-                    Class classObject = Class.forName(className);
-                    cgi = (Page) classObject.getDeclaredConstructor().newInstance();
-                } else if (o instanceof Page) {
-                    cgi = (Page) o;
-                }
+
+                Page cgi = getCgi(o);
+
                 if (cgi != null) {
-                    cgi.kick(mySocket, cgi.getVars(mySocket, len), httpheader);
+                    cgi.kick(mySocket, cgi.getVars(mySocket, len), httpHeader);
                     mySocket.flush();
                     mySocket.close();
                     return;
                 }
             }
         } catch (Exception e) {
-            logger.log(Level.SEVERE,e.getMessage());
+            logger.log(Level.SEVERE, e.getMessage());
         }
         Page.unknown(mySocket, file);
     }
 
-    private void procGET(String string, Vector httpheader) throws IOException {
+    private boolean isReject(Source source, List<String> httpHeader){
+        boolean reject = false;
+        if (source.getLimit() != 0 &&
+                source.getLimit() < source.getListeners()) {
+            reject = true;
+        }
+        if (!reject && source.for_relay_only) {
+            reject = true;
+            for (int i = 0; i < httpHeader.size(); i++) {
+                String foo = httpHeader.get(i);
+                if (foo.startsWith("jroar-proxy: ")) {
+                    reject = false;
+                    break;
+                }
+            }
+        }
+        return reject;
+    }
+
+    private void procGET(String string, List<String> httpHeader) throws IOException {
 
         String file;
 
@@ -215,28 +212,14 @@ class Dispatch {
 
         Source source = Source.getSource(fileAux);
         if (source != null) {
-            boolean reject = false;
-            if (source.getLimit() != 0 &&
-                    source.getLimit() < source.getListeners()) {
-                reject = true;
-            }
-            if (!reject && source.for_relay_only) {
-                reject = true;
-                for (int i = 0; i < httpheader.size(); i++) {
-                    String foo = (String) httpheader.elementAt(i);
-                    if (foo.startsWith("jroar-proxy: ")) {
-                        reject = false;
-                        break;
-                    }
-                }
-            }
+            boolean reject = isReject(source, httpHeader);
 
             if (reject) {
                 Page.unknown(mySocket, fileAux);
                 return;
             }
 
-            source.addListener(new HttpClient(mySocket, httpheader, fileAux));
+            source.addListener(new HttpClient(mySocket, httpHeader, fileAux));
             if (source instanceof Proxy) {
                 ((Proxy) source).kick();
             }
@@ -254,40 +237,35 @@ class Dispatch {
         try {
             Object o = Page.map(fileAux);
             if (o != null) {
-                Page cgi = null;
-                if (o instanceof String) {
-                    String className = (String) o;
-                    Class classObject = Class.forName(className);
-                    cgi = (Page) classObject.getDeclaredConstructor().newInstance();
-                } else if (o instanceof Page) {
-                    cgi = (Page) o;
-                }
+
+                Page cgi = getCgi(o);
+
                 if (cgi != null) {
-                    cgi.kick(mySocket, cgi.getVars((file.indexOf('?') != -1) ? file.substring(file.indexOf('?') + 1) : null), httpheader);
+                    cgi.kick(mySocket, cgi.getVars((file.indexOf('?') != -1) ? file.substring(file.indexOf('?') + 1) : null), httpHeader);
                     HttpServer.clientConnections++;
                     return;
                 }
             }
         } catch (Exception e) {
-            logger.log(Level.SEVERE,e.getMessage());
+            logger.log(Level.SEVERE, e.getMessage());
         }
 
         if (fileAux.endsWith(".pls")) {
             Page pls = new Pls(fileAux);
-            pls.kick(mySocket, null, httpheader);
+            pls.kick(mySocket, null, httpHeader);
             return;
         }
 
         if (fileAux.endsWith(".m3u")) {
             Page m3u = new M3u(fileAux);
-            m3u.kick(mySocket, null, httpheader);
+            m3u.kick(mySocket, null, httpHeader);
             return;
         }
 
         Page.unknown(mySocket, fileAux);
     }
 
-    private void procHEAD(String string, Vector httpheader) throws IOException {
+    private void procHEAD(String string) throws IOException {
 
         String file;
 
@@ -307,13 +285,11 @@ class Dispatch {
             if (fileAux.indexOf('?') != -1) fileAux = fileAux.substring(0, fileAux.indexOf('?'));
 
             Object o = Page.map(fileAux);
-            if (o != null) {
-                exist = true;
-            } else if (fileAux.endsWith(".pls")) {
-                exist = true;
-            } else if (fileAux.endsWith(".m3u")) {
+
+            if ((o != null) || (fileAux.endsWith(".pls")) || (fileAux.endsWith(".m3u"))) {
                 exist = true;
             }
+
             file = fileAux;
         }
 
@@ -337,7 +313,7 @@ class Dispatch {
 
             String bar = foo.substring(0, foo.indexOf(' '));
 
-            Vector v = getHttpHeader(mySocket);
+            List<String> v = getHttpHeader(mySocket);
 
             if (bar.equalsIgnoreCase("POST")) {
                 procPOST(foo, v);
@@ -350,11 +326,11 @@ class Dispatch {
             }
 
             if (bar.equalsIgnoreCase("HEAD")) {
-                procHEAD(foo, v);
+                procHEAD(foo);
             }
 
         } catch (Exception e) {
-            logger.log(Level.SEVERE,e.getMessage());
+            logger.log(Level.SEVERE, e.getMessage());
         }
     }
 }

@@ -41,7 +41,7 @@ class Store extends Page{
     store(mountpoint, source);
   }
 
-  public void kick(MySocket s, Hashtable vars, Vector httpheader) throws IOException{
+  public void kick(MySocket s, Hashtable vars, List httpheader) throws IOException{
     if(content==null){
       String mountpoint=(String)vars.get("mountpoint");
       String source=(String)vars.get("source");

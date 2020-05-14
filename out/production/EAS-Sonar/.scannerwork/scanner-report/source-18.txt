@@ -31,13 +31,13 @@ class HttpClient extends Client{
 
 String touched="not yet";
 
-  HttpClient(MySocket ms, Vector httpheader, String file){
+  HttpClient(MySocket ms, List httpHeader, String file){
     super();
     this.ms=ms;
     this.file=file;
     String foo=null;
-    for(int i=0; i<httpheader.size(); i++){
-      foo=(String)httpheader.elementAt(i);
+    for(int i=0; i<httpHeader.size(); i++){
+      foo=(String)httpHeader.get(i);
       if(foo.startsWith("jroar-proxy: ")){
         proxy=foo.substring(foo.indexOf(' ')+1);
       }
